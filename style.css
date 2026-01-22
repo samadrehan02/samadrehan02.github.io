@@ -1,0 +1,140 @@
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --text: #e0e0e0;
+  --muted: #a0a0a0;
+  --accent: #82b1ff;
+  --border: #2a2a2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* WebKit scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 8px;
+  border: 3px solid var(--bg);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.tagline {
+  color: var(--accent);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.intro {
+  margin-top: 24px;
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.links {
+  margin-top: 24px;
+}
+
+.links a {
+  margin-right: 16px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.links a:hover {
+  border-bottom: 1px solid var(--accent);
+}
+
+section {
+  margin-top: 72px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.project h3 {
+  margin-top: 0;
+}
+
+.project-desc {
+  color: var(--muted);
+}
+
+.project ul {
+  padding-left: 18px;
+}
+
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.other-work {
+  list-style: none;
+  padding-left: 0;
+}
+
+.other-work li {
+  margin-bottom: 12px;
+}
+
+.other-work a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.other-work a:hover {
+  color: var(--accent);
+}
+
+footer {
+  margin-top: 96px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
