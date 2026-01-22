@@ -39,24 +39,45 @@
 
         <p class="project-desc">
           Real-time medical transcription and clinical note generation from noisy
-          doctor–patient conversations.
+          doctor–patient conversations in outpatient settings.
+        </p>
+
+        <p class="project-focus">
+          <strong>System Overview:</strong><br />
+          Live audio stream → Hindi/Hinglish ASR → entity extraction →
+          constrained LLM generation → structured OPD note + export
         </p>
 
         <ul>
-          <li>Built a live Hindi/Hinglish ASR pipeline tailored for outpatient clinical settings</li>
-          <li>Extracted structured medical entities before LLM generation to reduce hallucinations</li>
-          <li>Used instruction-tuned LLMs with strict output constraints for safe OPD notes</li>
-          <li>Designed session-scoped workflows with speaker handling for real-time use</li>
+          <li>
+            Chose a lightweight ASR pipeline optimized for real-time latency and
+            conversational Hindi/Hinglish instead of maximizing offline WER scores
+          </li>
+          <li>
+            Performed clinical entity extraction before LLM generation to reduce
+            hallucinations and enforce medical safety boundaries
+          </li>
+          <li>
+            Used instruction-tuned LLMs with strict output schemas rather than
+            free-form generation to maintain consistency and auditability
+          </li>
+          <li>
+            Designed session-scoped workflows with speaker handling to support
+            continuous, real-time clinical usage
+          </li>
         </ul>
 
         <p class="project-focus">
-          Focus: real-time constraints, hallucination control, clinical safety
+          <strong>Constraints:</strong>
+          real-time audio, noisy environments, mixed-language speech,
+          clinical safety, low tolerance for hallucinations
         </p>
 
         <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank">
           View on GitHub →
         </a>
       </div>
+
 
       <!-- Minutes of Meeting AI -->
       <div class="project">
