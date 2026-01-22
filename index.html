@@ -6,83 +6,148 @@
   <title>Samad Rehan</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <main class="container">
+
+    <!-- ================= HERO ================= -->
     <header class="hero">
       <h1>Samad Rehan</h1>
       <p class="tagline">Open Source Machine Learning Engineer</p>
+
       <p class="intro">
         I build practical machine learning systems with a focus on LLMs, NLP pipelines,
-        and production reliability. Most of my work is open source and centered around
-        real-world deployment constraints.
+        and production reliability. Most of my work is open source and designed around
+        real-world constraints rather than demos.
       </p>
+
       <nav class="links">
-        <a href="assets/samad-resume-2026.pdf" target="_blank">Resume</a>
+        <a href="assets/resume.pdf" target="_blank">Resume</a>
         <a href="https://github.com/samadrehan02" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/samad-rehan-621443218/" target="_blank">LinkedIn</a>
         <a href="mailto:samadrehan123456@gmail.com">Email</a>
       </nav>
     </header>
 
+    <!-- ================= PROJECTS ================= -->
     <section>
       <h2>Flagship Projects</h2>
 
+      <!-- AI Medical Scribe -->
       <div class="project">
         <h3>AI Medical Scribe</h3>
+
         <p class="project-desc">
-          Real-time medical transcription and clinical note generation from
+          Real-time medical transcription and clinical note generation from noisy
           doctor–patient conversations.
         </p>
+
         <ul>
-          <li>Built a Hindi/Hinglish ASR + NLP pipeline for live clinical settings</li>
+          <li>Built a live Hindi/Hinglish ASR pipeline tailored for outpatient clinical settings</li>
           <li>Extracted structured medical entities before LLM generation to prevent hallucinations</li>
-          <li>Used instruction-tuned LLMs with strict output constraints</li>
-          <li>Designed session-based workflows for real-time use, not batch demos</li>
+          <li>Used instruction-tuned LLMs with strict output constraints to generate safe OPD notes</li>
+          <li>Designed session-scoped workflows with speaker handling for real-time use</li>
         </ul>
-        <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank">View on GitHub →</a>
+
+        <p class="project-focus">
+          Focus: real-time constraints, hallucination control, clinical safety
+        </p>
+
+        <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank">
+          View on GitHub →
+        </a>
       </div>
 
+      <!-- Minutes of Meeting AI -->
       <div class="project">
         <h3>Minutes of Meeting AI</h3>
+
         <p class="project-desc">
-          Automated meeting transcription and summarization system for structured decision tracking.
+          Automated meeting transcription and summarization focused on decisions,
+          action items, and accountability.
         </p>
+
         <ul>
           <li>Converted raw meeting transcripts into concise, structured summaries</li>
-          <li>Focused on action items, decisions, and participant attribution</li>
-          <li>Designed for noisy, real-world meeting transcripts</li>
+          <li>Prioritized extraction of decisions, follow-ups, and participant attribution</li>
+          <li>Handled noisy, multi-speaker meeting data with robust prompting and post-processing</li>
+          <li>Optimized for usefulness over generic abstractive summaries</li>
         </ul>
-        <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank">View on GitHub →</a>
+
+        <p class="project-focus">
+          Focus: information extraction, structured summaries, noisy transcripts
+        </p>
+
+        <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank">
+          View on GitHub →
+        </a>
       </div>
 
+      <!-- TCN Stock Prediction -->
       <div class="project">
         <h3>TCN Stock Prediction</h3>
+
         <p class="project-desc">
-          Time-series stock forecasting using hybrid TCN and Transformer models.
+          Time-series stock forecasting using a hybrid Temporal Convolutional Network
+          and Transformer architecture.
         </p>
+
         <ul>
-          <li>Built a full ML pipeline for financial time-series prediction</li>
-          <li>Achieved high R² on historical datasets</li>
-          <li>Optimized inference paths for low-latency predictions</li>
+          <li>Built an end-to-end pipeline for financial time-series prediction</li>
+          <li>Combined TCNs for local temporal patterns with Transformers for long-range dependencies</li>
+          <li>Focused on reproducibility and inference efficiency, not one-off accuracy</li>
+          <li>Evaluated performance on held-out historical market data</li>
         </ul>
-        <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank">View on GitHub →</a>
+
+        <p class="project-focus">
+          Focus: time-series modeling, reproducibility, inference performance
+        </p>
+
+        <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank">
+          View on GitHub →
+        </a>
       </div>
     </section>
 
+    <!-- ================= OTHER WORK ================= -->
     <section>
-      <h2>Other Work</h2>
+      <h2>Other LLM & ML Work</h2>
+      <p class="section-note">
+        Additional projects exploring LLM systems, RAG pipelines, and core ML techniques.
+      </p>
+
       <ul class="other-work">
-        <li><a href="https://github.com/samadrehan02/Production-grade-RAG-Assistant-for-Customer-Analytics-and-Support" target="_blank">Production-grade RAG Assistant</a></li>
-        <li><a href="https://github.com/samadrehan02/turbo-couscousv2-" target="_blank">NL2SQL Conversational System</a></li>
-        <li><a href="https://github.com/samadrehan02/DCGAN-Handwritten-digits-MNIST" target="_blank">DCGAN (MNIST)</a></li>
-        <li><a href="https://github.com/samadrehan02/Personal_Record_prediction_gym" target="_blank">Gym PR Prediction Tool</a></li>
+        <li>
+          <a href="https://github.com/samadrehan02/Production-grade-RAG-Assistant-for-Customer-Analytics-and-Support" target="_blank">
+            Production-grade RAG Assistant
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/samadrehan02/turbo-couscousv2-" target="_blank">
+            NL2SQL Conversational System
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/samadrehan02/DCGAN-Handwritten-digits-MNIST" target="_blank">
+            DCGAN (MNIST)
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/samadrehan02/Personal_Record_prediction_gym" target="_blank">
+            Gym PR Prediction Tool
+          </a>
+        </li>
       </ul>
     </section>
 
+    <!-- ================= FOOTER ================= -->
     <footer>
-      <p>Built with plain HTML and CSS.</p>
+      <p>Built with plain HTML, CSS, and a small amount of JavaScript.</p>
     </footer>
+
   </main>
+
+  <!-- App JS -->
   <script src="app.js"></script>
 </body>
 </html>
