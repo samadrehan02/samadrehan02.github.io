@@ -78,25 +78,46 @@
         </a>
       </div>
 
-
       <!-- Minutes of Meeting AI -->
       <div class="project">
         <h3>Minutes of Meeting AI</h3>
 
         <p class="project-desc">
-          Automated meeting transcription and summarization focused on decisions,
-          action items, and accountability.
+          Automated meeting transcription and summarization system focused on extracting
+          decisions, action items, and accountability from multi-speaker conversations.
+        </p>
+
+        <p class="project-focus">
+          <strong>System Overview:</strong><br />
+          Raw transcript → speaker normalization →
+          structured information extraction →
+          constrained LLM summarization →
+          actionable meeting notes
         </p>
 
         <ul>
-          <li>Converted raw transcripts into concise, structured summaries</li>
-          <li>Extracted decisions, follow-ups, and participant attribution</li>
-          <li>Handled noisy multi-speaker data with robust prompting and post-processing</li>
-          <li>Optimized for usefulness over generic abstractive summaries</li>
+          <li>
+            Prioritized structured extraction of decisions, action items, and owners
+            instead of relying on generic abstractive summaries
+          </li>
+          <li>
+            Designed prompts and post-processing to handle noisy, multi-speaker transcripts
+            with interruptions and partial sentences
+          </li>
+          <li>
+            Used schema-constrained LLM outputs to ensure consistency across meetings
+            and enable downstream automation
+          </li>
+          <li>
+            Optimized for usefulness in follow-ups and accountability rather than
+            narrative completeness
+          </li>
         </ul>
 
         <p class="project-focus">
-          Focus: information extraction, structured summaries, noisy transcripts
+          <strong>Constraints:</strong>
+          noisy transcripts, overlapping speakers, implicit decisions,
+          need for consistent structure across meetings
         </p>
 
         <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank">
@@ -109,19 +130,42 @@
         <h3>TCN Stock Prediction</h3>
 
         <p class="project-desc">
-          Time-series stock forecasting using a hybrid Temporal Convolutional Network
-          and Transformer architecture.
+          Time-series stock forecasting system using a hybrid Temporal Convolutional Network
+          and Transformer architecture, designed for reproducibility and stable inference.
+        </p>
+
+        <p class="project-focus">
+          <strong>System Overview:</strong><br />
+          Historical price data →
+          feature normalization →
+          TCN for local temporal patterns →
+          Transformer for long-range dependencies →
+          forecasting output
         </p>
 
         <ul>
-          <li>Built an end-to-end pipeline for financial time-series prediction</li>
-          <li>Combined TCNs for local temporal patterns with Transformers for long-range dependencies</li>
-          <li>Focused on reproducibility and inference efficiency</li>
-          <li>Evaluated on held-out historical market data</li>
+          <li>
+            Combined TCNs for efficient modeling of short-term temporal structure with
+            Transformers for capturing longer-range dependencies
+          </li>
+          <li>
+            Prioritized reproducibility and stable inference behavior over one-off
+            benchmark optimization
+          </li>
+          <li>
+            Built an end-to-end pipeline with clear data splits to reduce leakage and
+            improve evaluation reliability
+          </li>
+          <li>
+            Focused on inference efficiency to support repeated forecasting rather than
+            single-run experimentation
+          </li>
         </ul>
 
         <p class="project-focus">
-          Focus: time-series modeling, reproducibility, inference performance
+          <strong>Constraints:</strong>
+          non-stationary time-series data, risk of data leakage,
+          need for repeatable evaluation, inference efficiency
         </p>
 
         <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank">
