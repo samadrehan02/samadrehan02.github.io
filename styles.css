@@ -1,9 +1,13 @@
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
 :root {
-  --bg-start: #0e0e0e;
-  --bg-end: #161616;
+  --bg-start: #0c0c0c;
+  --bg-end: #171717;
 
   --surface: #1c1c1c;
-  --surface-hover: #232323;
+  --surface-hover: #242424;
 
   --text: #e6e6e6;
   --muted: #a5a5a5;
@@ -12,17 +16,21 @@
   --accent-soft: rgba(130, 177, 255, 0.18);
 
   --radius: 14px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
 }
 
-/* ---------- Base ---------- */
+/* =========================================================
+   BASE
+   ========================================================= */
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
 }
 
 body {
@@ -35,7 +43,17 @@ body {
   line-height: 1.65;
 }
 
-/* Scrollbar (WebKit) */
+/* =========================================================
+   SEAMLESS SCROLLBAR
+   ========================================================= */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+/* WebKit */
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -45,20 +63,30 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--accent);
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
   border: 3px solid transparent;
+  background-clip: content-box;
 }
 
-/* ---------- Layout ---------- */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
 
 .container {
   max-width: 860px;
   margin: 0 auto;
   padding: 72px 20px 120px;
+  animation: fadeUp var(--duration-slow) var(--ease-soft) both;
 }
 
-/* ---------- Typography ---------- */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
 h1 {
   margin: 0;
@@ -96,7 +124,29 @@ p {
   color: var(--muted);
 }
 
-/* ---------- Interactive Link Boxes ---------- */
+/* =========================================================
+   HERO STAGGER
+   ========================================================= */
+
+.hero h1 {
+  animation: fadeUp 500ms var(--ease-soft) both;
+}
+
+.hero .tagline {
+  animation: fadeUp 600ms var(--ease-soft) both;
+}
+
+.hero .intro {
+  animation: fadeUp 700ms var(--ease-soft) both;
+}
+
+.hero .links {
+  animation: fadeUp 800ms var(--ease-soft) both;
+}
+
+/* =========================================================
+   INTERACTIVE LINK PILLS
+   ========================================================= */
 
 .links {
   margin-top: 32px;
@@ -113,11 +163,13 @@ p {
   font-weight: 500;
   text-decoration: none;
   border: 1px solid transparent;
-  transition: background 0.15s ease, transform 0.15s ease,
-    box-shadow 0.15s ease, border-color 0.15s ease;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
-/* Hover only where supported */
 @media (hover: hover) {
   .links a:hover {
     background: var(--surface-hover);
@@ -127,14 +179,22 @@ p {
   }
 }
 
+.links a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .links a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
-/* ---------- Projects ---------- */
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
 
 .project {
+  position: relative;
   background: linear-gradient(180deg, var(--surface), #191919);
   border-radius: var(--radius);
   padding: 28px;
@@ -142,8 +202,10 @@ p {
   box-shadow:
     0 8px 28px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.02);
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    background 0.18s ease;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out);
 }
 
 @media (hover: hover) {
@@ -153,6 +215,33 @@ p {
     box-shadow:
       0 14px 40px rgba(0, 0, 0, 0.55),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+}
+
+.project:focus-within {
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at 50% 50%,
+    rgba(130, 177, 255, 0.05),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .project:hover::after {
+    opacity: 1;
   }
 }
 
@@ -186,7 +275,9 @@ p {
   text-underline-offset: 3px;
 }
 
-/* ---------- Other Work ---------- */
+/* =========================================================
+   OTHER WORK
+   ========================================================= */
 
 .other-work {
   list-style: none;
@@ -206,12 +297,29 @@ p {
   color: var(--accent);
 }
 
-/* ---------- Footer ---------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   margin-top: 120px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================================
@@ -240,10 +348,6 @@ footer {
     margin-top: 22px;
   }
 
-  .links {
-    gap: 10px;
-  }
-
   .links a {
     padding: 10px 14px;
     font-size: 0.95rem;
@@ -253,11 +357,18 @@ footer {
     padding: 22px;
   }
 
-  .project ul {
-    margin-top: 14px;
-  }
-
   footer {
     margin-top: 96px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
