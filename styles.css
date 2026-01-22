@@ -242,13 +242,16 @@ p {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
+
   background: radial-gradient(
-    600px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(138, 180, 248, 0.08),
-    transparent 45%
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(138, 180, 248, 0.14),
+    rgba(138, 180, 248, 0.06) 40%,
+    transparent 65%
   );
+
   opacity: 0;
-  transition: opacity var(--duration-base) var(--ease-out);
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 @media (hover: hover) {
