@@ -266,6 +266,56 @@ p {
   }
 }
 
+/* =========================================================
+   FLAGSHIP TOGGLE
+   ========================================================= */
+
+.flagship-toggle {
+  margin: 32px 0 18px;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, var(--surface), #181b22);
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: 500;
+  color: var(--text);
+
+  transition:
+    background var(--duration-base) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.flagship-toggle:hover {
+  background: linear-gradient(180deg, var(--surface-hover), #1d2130);
+  transform: translateY(-1px);
+}
+
+.flagship-toggle .count {
+  color: var(--muted);
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.flagship-toggle .chevron {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.flagship-toggle.open .chevron {
+  transform: rotate(90deg);
+}
+
+.flagship-hidden {
+  display: none;
+}
+
+.flagship-hidden.open {
+  display: block;
+}
+
 .project::after {
   content: "";
   position: absolute;

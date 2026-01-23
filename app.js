@@ -27,3 +27,13 @@ document.querySelectorAll('.project').forEach(card => {
     card.style.removeProperty('--my');
   });
 });
+
+const toggle = document.getElementById("flagshipToggle");
+const hidden = document.getElementById("flagshipHidden");
+
+if (toggle && hidden) {
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("open");
+    hidden.classList.toggle("open");
+  });
+}
