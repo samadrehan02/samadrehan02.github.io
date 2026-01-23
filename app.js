@@ -33,7 +33,19 @@ const hidden = document.getElementById("flagshipHidden");
 
 if (toggle && hidden) {
   toggle.addEventListener("click", () => {
+    const isOpen = hidden.classList.contains("open");
+
     toggle.classList.toggle("open");
-    hidden.classList.toggle("open");
+
+    if (!isOpen) {
+      hidden.classList.add("open");
+      hidden.style.maxHeight = hidden.scrollHeight + "px";
+    } else {
+      hidden.style.maxHeight = hidden.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        hidden.style.maxHeight = "0px";
+        hidden.classList.remove("open");
+      });
+    }
   });
 }

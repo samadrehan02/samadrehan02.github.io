@@ -309,11 +309,21 @@ p {
 }
 
 .flagship-hidden {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+
+  transition:
+    max-height 520ms var(--ease-soft),
+    opacity 260ms var(--ease-out),
+    transform 260ms var(--ease-out);
 }
 
 .flagship-hidden.open {
-  display: block;
+  max-height: 2000px; /* safely larger than content */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project::after {
