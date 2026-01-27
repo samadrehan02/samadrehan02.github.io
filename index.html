@@ -8,6 +8,9 @@
 </head>
 
 <body>
+  <!-- Custom cursor -->
+  <div class="cursor"></div>
+
   <main class="container">
 
     <!-- ================= HERO ================= -->
@@ -15,35 +18,53 @@
       <h1>Samad Rehan</h1>
 
       <p class="tagline">
-        Research-driven ML Engineer working on open-source LLM systems
+        Research-driven ML Engineer · Open-source LLM systems
       </p>
 
       <p class="intro">
-        I work on machine learning systems with an emphasis on open research,
-        reproducibility, and real-world failure modes. My interests lie in LLM
-        behavior under constraints, structured generation, and low-resource,
-        mixed-language NLP. Most of my work is open source and designed to be
-        inspected, reproduced, and extended.
+        I work on machine learning systems with a research mindset — focusing on
+        reproducibility, controlled generation, and real-world failure modes.
+        My work explores LLM behavior under constraints, structured outputs,
+        and low-resource, mixed-language NLP. Most projects are open source and
+        designed to be inspected and extended.
       </p>
 
       <nav class="links">
-        <a href="assets/samad-resume-2026.pdf" target="_blank">Resume</a>
-        <a href="https://github.com/samadrehan02" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/samad-rehan-621443218/" target="_blank">LinkedIn</a>
-        <a href="mailto:samadrehan123456@gmail.com">Email</a>
+        <a href="assets/samad-resume-2026.pdf" target="_blank" data-cursor>
+          <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+          Resume
+        </a>
+
+        <a href="https://github.com/samadrehan02" target="_blank" data-cursor>
+          <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.8.5 12.2c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 2.6 1.7 2.6-.8v-1.5c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C15.8 4 16.8 4.3 16.8 4.3c.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.6-2.7 5.6-5.3 5.9v2.3c0 .3.2.7.8.6a11.8 11.8 0 0 0 7.9-10.9C23.5 5.8 18.3.5 12 .5z"/></svg>
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/samad-rehan-621443218/" target="_blank" data-cursor>
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM0 24h5V7H0v17zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.7 4.9-2.7 5.3 0 6.3 3.5 6.3 8V24h-5v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.2V24h-5V7z"/></svg>
+          LinkedIn
+        </a>
+
+        <a href="mailto:samadrehan123456@gmail.com" data-cursor>
+          <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2z"/><path d="M22 4 12 13 2 4"/></svg>
+          Email
+        </a>
       </nav>
     </header>
 
     <!-- ================= PROJECTS ================= -->
     <section>
-      <h2>Flagship Projects</h2>
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 13L2 10v7l10 5 10-5v-7l-10 5z"/></svg>
+        Flagship Projects
+      </h2>
 
       <!-- AI Medical Scribe -->
-      <div class="project reveal">
+      <div class="project reveal" data-cursor>
         <h3>
           AI Medical Scribe
-          <span class="project-badge research">Research</span>
-          <span class="project-badge open">Open Source</span>
+          <span class="badge research">Research</span>
+          <span class="badge open">Open Source</span>
         </h3>
 
         <p class="project-desc">
@@ -52,58 +73,36 @@
         </p>
 
         <p class="project-focus">
-          <strong>Research focus:</strong><br />
-          Studying hallucination control, structured generation, and error
-          propagation in low-resource, code-switched medical ASR pipelines.
+          <strong>Research focus:</strong>
+          Hallucination control, structured generation, and error propagation
+          in low-resource, code-switched medical ASR pipelines.
         </p>
 
         <p class="project-focus">
-          <strong>System overview:</strong><br />
-          Live audio stream → Hindi/Hinglish ASR →
-          clinical entity extraction →
-          schema-constrained LLM generation →
-          structured OPD note export
+          <strong>System:</strong>
+          Live audio → ASR → entity extraction → constrained LLM → OPD notes
         </p>
 
         <ul>
-          <li>
-            Investigated entity-first pipelines as a mechanism to reduce
-            hallucinated medical facts compared to end-to-end generation
-          </li>
-          <li>
-            Evaluated schema-constrained decoding vs free-form generation
-            under noisy ASR and partial utterances
-          </li>
-          <li>
-            Designed session-scoped workflows with speaker handling for
-            continuous, real-time clinical usage
-          </li>
-          <li>
-            Focused on failure visibility and auditability rather than
-            maximizing offline benchmark scores
-          </li>
+          <li>Studied entity-first pipelines vs end-to-end generation</li>
+          <li>Evaluated schema-constrained decoding under noisy ASR</li>
+          <li>Designed session-scoped, auditable workflows</li>
         </ul>
 
         <p class="project-focus">
-          <strong>Outcomes:</strong><br />
-          • Significantly reduced invalid or hallucinated clinical entities under noisy ASR<br />
-          • Improved consistency and structural validity of generated notes across sessions<br />
-          • Identified normalization errors as a larger failure source than raw ASR WER
+          <strong>Outcomes:</strong>
+          Reduced hallucinated clinical facts, improved structural validity,
+          and identified normalization as a dominant failure source.
         </p>
 
-        <p class="project-focus">
-          <strong>Constraints:</strong>
-          real-time audio, mixed-language speech,
-          clinical safety, low tolerance for hallucinations
-        </p>
-
-        <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank">
-          Open-source implementation →
+        <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank" data-cursor>
+          <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>
+          Open-source implementation
         </a>
       </div>
 
-      <!-- ================= OTHER FLAGSHIP PROJECTS ================= -->
-      <div class="flagship-toggle reveal" id="flagshipToggle">
+      <!-- Toggle -->
+      <div class="flagship-toggle reveal" id="flagshipToggle" data-cursor>
         <span>Other flagship projects</span>
         <span class="count">(2)</span>
         <span class="chevron">▸</span>
@@ -111,218 +110,58 @@
 
       <div class="flagship-hidden" id="flagshipHidden">
 
-        <!-- Minutes of Meeting AI -->
-        <div class="project reveal">
+        <!-- Minutes of Meeting -->
+        <div class="project reveal" data-cursor>
           <h3>
             Minutes of Meeting AI
-            <span class="project-badge research">Research</span>
-            <span class="project-badge open">Open Source</span>
+            <span class="badge research">Research</span>
+            <span class="badge open">Open Source</span>
           </h3>
 
           <p class="project-desc">
-            Automated transcription and structured summarization of multi-speaker
-            meetings with a focus on decisions, action items, and accountability.
+            Structured extraction of decisions and action items from
+            multi-speaker meetings.
           </p>
 
           <p class="project-focus">
-            <strong>Research focus:</strong><br />
-            Exploring structured extraction and constrained summarization
-            as alternatives to generic abstractive meeting summaries.
+            <strong>Outcomes:</strong>
+            More consistent action-item extraction and lower summary variance
+            vs free-form generation.
           </p>
 
-          <p class="project-focus">
-            <strong>System overview:</strong><br />
-            Raw transcript →
-            speaker normalization →
-            structured information extraction →
-            schema-constrained LLM summarization
-          </p>
-
-          <ul>
-            <li>
-              Studied decision and action-item extraction under noisy,
-              overlapping speaker transcripts
-            </li>
-            <li>
-              Designed prompts and post-processing to handle interruptions,
-              partial sentences, and implicit decisions
-            </li>
-            <li>
-              Prioritized consistency and downstream usability over narrative fluency
-            </li>
-          </ul>
-
-          <p class="project-focus">
-            <strong>Outcomes:</strong><br />
-            • More consistent extraction of actionable items across meetings<br />
-            • Reduced variance in summaries compared to free-form generation
-          </p>
-
-          <p class="project-focus">
-            <strong>Constraints:</strong>
-            noisy transcripts, overlapping speakers,
-            implicit decisions, need for consistent structure
-          </p>
-
-          <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank">
-            Open-source implementation →
+          <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank" data-cursor>
+            Open-source implementation
           </a>
         </div>
 
-        <!-- TCN Stock Prediction -->
-        <div class="project reveal">
+        <!-- TCN -->
+        <div class="project reveal" data-cursor>
           <h3>
             TCN Stock Prediction
-            <span class="project-badge research">Research</span>
-            <span class="project-badge open">Open Source</span>
+            <span class="badge research">Research</span>
+            <span class="badge open">Open Source</span>
           </h3>
 
           <p class="project-desc">
-            Time-series forecasting system combining Temporal Convolutional
-            Networks and Transformers for stable, reproducible inference.
+            Hybrid TCN + Transformer time-series forecasting system.
           </p>
 
           <p class="project-focus">
-            <strong>Research focus:</strong><br />
-            Investigating hybrid architectures for balancing local temporal
-            pattern capture with long-range dependency modeling.
+            <strong>Outcomes:</strong>
+            Stable inference across runs and reduced variance vs Transformer-only baselines.
           </p>
 
-          <p class="project-focus">
-            <strong>System overview:</strong><br />
-            Historical price data →
-            feature normalization →
-            TCN for short-term structure →
-            Transformer for long-range dependencies
-          </p>
-
-          <ul>
-            <li>
-              Analyzed tradeoffs between TCN-only, Transformer-only,
-              and hybrid architectures
-            </li>
-            <li>
-              Emphasized reproducibility and stable inference behavior
-              over one-off benchmark optimization
-            </li>
-            <li>
-              Designed strict data splits to reduce leakage and
-              misleading evaluation
-            </li>
-          </ul>
-
-          <p class="project-focus">
-            <strong>Outcomes:</strong><br />
-            • Achieved stable forecasting performance across repeated runs<br />
-            • Reduced inference variance compared to Transformer-only baselines
-          </p>
-
-          <p class="project-focus">
-            <strong>Constraints:</strong>
-            non-stationary time-series data,
-            data leakage risk, inference efficiency
-          </p>
-
-          <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank">
-            Open-source implementation →
+          <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank" data-cursor>
+            Open-source implementation
           </a>
         </div>
 
       </div>
-    </section>
-
-    <!-- ================= SKILLS ================= -->
-    <section>
-      <h2>Skills</h2>
-
-      <div class="project reveal">
-        <h3>ML Research & LLM Systems</h3>
-        <ul>
-          <li>LLM behavior analysis, instruction tuning, output constraints</li>
-          <li>RAG pipelines, NL2SQL, information extraction, NER</li>
-          <li>Hindi & Hinglish NLP, ASR pipelines</li>
-        </ul>
-      </div>
-
-      <div class="project reveal">
-        <h3>ML Engineering & Reproducibility</h3>
-        <ul>
-          <li>PyTorch, Hugging Face, scikit-learn</li>
-          <li>FastAPI inference services, REST APIs</li>
-          <li>Evaluation pipelines, latency analysis</li>
-          <li>Docker, AWS, Linux</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ================= EXPERIENCE ================= -->
-    <section>
-      <h2>Experience</h2>
-
-      <div class="project reveal">
-        <h3>Machine Learning Engineer — Augurs Technologies</h3>
-        <p class="project-desc">
-          Designing and deploying LLM-powered systems with an emphasis on
-          reliability, observability, and controlled generation.
-        </p>
-
-        <ul>
-          <li>
-            Built and maintained FastAPI-based inference services for LLMs and RAG pipelines
-          </li>
-          <li>
-            Applied MLOps practices for versioning, monitoring, and rollback
-          </li>
-          <li>
-            Optimized latency and cost across GPU-hosted and cloud-managed models
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ================= EDUCATION ================= -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="project reveal">
-        <h3>Vellore Institute of Technology</h3>
-        <p class="project-desc">
-          B.Tech in Computer Science and Engineering (AI & ML)
-        </p>
-
-        <ul>
-          <li>Graduated 2025</li>
-          <li>Focus on applied machine learning and system design</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ================= OTHER WORK ================= -->
-    <section>
-      <h2>Other LLM & ML Work</h2>
-
-      <ul class="other-work">
-        <li class="reveal">
-          <a href="https://github.com/samadrehan02/Production-grade-RAG-Assistant-for-Customer-Analytics-and-Support" target="_blank">
-            Production-grade RAG Assistant
-          </a>
-        </li>
-        <li class="reveal">
-          <a href="https://github.com/samadrehan02/turbo-couscousv2-" target="_blank">
-            NL2SQL Conversational System
-          </a>
-        </li>
-        <li class="reveal">
-          <a href="https://github.com/samadrehan02/DCGAN-Handwritten-digits-MNIST" target="_blank">
-            DCGAN (MNIST)
-          </a>
-        </li>
-      </ul>
     </section>
 
     <!-- ================= FOOTER ================= -->
     <footer>
-      <p>Built with plain HTML, CSS, and JavaScript. Open, inspectable, and reproducible.</p>
+      <p>Built with plain HTML, CSS, and JavaScript. Fully inspectable.</p>
     </footer>
 
   </main>

@@ -14,16 +14,15 @@
 
   --accent: #8ab4f8;
   --accent-secondary: #b39ddb;
-  --accent-soft: rgba(138, 180, 248, 0.18);
 
   --radius: 14px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --duration-fast: 120ms;
-  --duration-base: 260ms;
-  --duration-slow: 520ms;
+  --dur-fast: 120ms;
+  --dur-base: 260ms;
+  --dur-slow: 520ms;
 }
 
 /* =========================================================
@@ -35,7 +34,7 @@
 }
 
 html {
-  background-color: var(--bg-start);
+  background: var(--bg-start);
 }
 
 body {
@@ -44,11 +43,49 @@ body {
   background:
     radial-gradient(900px 500px at 15% -10%, rgba(138,180,248,0.10), transparent 45%),
     radial-gradient(700px 400px at 85% 15%, rgba(179,157,219,0.08), transparent 50%),
-    linear-gradient(180deg, #0b0d10 0%, #11141a 40%, #14161b 100%);
+    linear-gradient(180deg, #0b0d10, #14161b);
   color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.65;
+  cursor: none;
+}
+
+/* =========================================================
+   CUSTOM CURSOR (INVERT)
+   ========================================================= */
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  background: white;
+  mix-blend-mode: difference;
+
+  transform: translate(-50%, -50%);
+  transition:
+    width 180ms var(--ease-out),
+    height 180ms var(--ease-out),
+    opacity 180ms var(--ease-out);
+
+  opacity: 0;
+}
+
+@media (pointer: fine) {
+  body:hover .cursor {
+    opacity: 1;
+  }
+}
+
+.cursor.active {
+  width: 64px;
+  height: 64px;
 }
 
 /* =========================================================
@@ -73,11 +110,22 @@ h1 {
 }
 
 h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-top: 72px;
   margin-bottom: 28px;
   font-size: 1.7rem;
   font-weight: 600;
   position: relative;
+}
+
+h2 svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  opacity: 0.7;
 }
 
 h2::after {
@@ -121,7 +169,7 @@ p {
 }
 
 /* =========================================================
-   HERO LINKS
+   LINKS (HERO)
    ========================================================= */
 
 .links {
@@ -132,6 +180,9 @@ p {
 }
 
 .links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 16px;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--surface), #181b22);
@@ -140,17 +191,22 @@ p {
   text-decoration: none;
   border: 1px solid transparent;
   transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    background var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
+}
+
+.links svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: 0.8;
 }
 
 @media (hover: hover) {
   .links a:hover {
     transform: translateY(-1px);
     background: linear-gradient(180deg, var(--surface-hover), #1d2130);
-    border-color: var(--accent-soft);
     box-shadow:
       0 8px 24px rgba(0,0,0,0.45),
       0 0 0 1px rgba(138,180,248,0.12);
@@ -174,25 +230,23 @@ p {
     inset 0 1px 0 rgba(255,255,255,0.04);
   transform-style: preserve-3d;
   transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    background var(--duration-base) var(--ease-out);
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
 }
 
+/* Hover depth */
 @media (hover: hover) {
   .project:hover {
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.00) 22%),
-      linear-gradient(180deg, #232733, #1a1f2c);
     transform:
       perspective(900px)
-      rotateX(var(--rxrx, 0deg))
-      rotateY(var(--Rry, 0deg))
+      rotateX(var(--rx, 0deg))
+      rotateY(var(--ry, 0deg))
       translateY(-2px);
   }
 }
 
-/* Glow */
+/* Controlled glow */
 .project::after {
   content: "";
   position: absolute;
@@ -200,19 +254,17 @@ p {
   border-radius: inherit;
   pointer-events: none;
   background: radial-gradient(
-    260px circle at var(--mx,50%) var(--my,50%),
+    260px circle at var(--mx, 50%) var(--my, 50%),
     rgba(138,180,248,0.14),
     rgba(138,180,248,0.06) 40%,
     transparent 65%
   );
   opacity: 0;
-  transition: opacity var(--duration-fast) var(--ease-out);
+  transition: opacity var(--dur-fast) var(--ease-out);
 }
 
-@media (hover: hover) {
-  .project:hover::after {
-    opacity: 0.85;
-  }
+.project.is-hovered::after {
+  opacity: 0.85;
 }
 
 /* =========================================================
@@ -255,39 +307,46 @@ p {
    BADGES
    ========================================================= */
 
-.project-badge {
+.badge {
   display: inline-block;
   margin-left: 8px;
   padding: 4px 8px;
   font-size: 0.7rem;
   border-radius: 999px;
   font-weight: 500;
-  vertical-align: middle;
 }
 
-.project-badge.research {
+.badge.research {
   background: rgba(138,180,248,0.18);
   color: var(--accent);
 }
 
-.project-badge.open {
+.badge.open {
   background: rgba(179,157,219,0.18);
   color: var(--accent-secondary);
 }
 
 /* =========================================================
-   LINKS IN PROJECTS
+   PROJECT LINKS
    ========================================================= */
 
 .project a {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   margin-top: 14px;
   font-size: 0.95rem;
   color: var(--accent);
   font-weight: 500;
   text-decoration: none;
   position: relative;
+}
+
+.project a svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
 }
 
 .project a::after {
@@ -300,7 +359,7 @@ p {
   background: linear-gradient(90deg, var(--accent), transparent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--duration-base) var(--ease-out);
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .project a:hover::after {
@@ -316,14 +375,14 @@ p {
   padding: 16px 20px;
   background: linear-gradient(180deg, var(--surface), #181b22);
   border-radius: var(--radius);
-  cursor: pointer;
+  cursor: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-weight: 500;
   transition:
-    background var(--duration-base) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
 }
 
 .flagship-toggle:hover {
@@ -349,42 +408,20 @@ p {
 }
 
 /* =========================================================
-   REVEAL ANIMATIONS
+   REVEAL
    ========================================================= */
 
 .reveal {
   opacity: 0;
   transform: translateY(14px) scale(0.985);
   transition:
-    opacity var(--duration-slow) var(--ease-soft),
-    transform var(--duration-slow) var(--ease-soft);
+    opacity var(--dur-slow) var(--ease-soft),
+    transform var(--dur-slow) var(--ease-soft);
 }
 
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-/* =========================================================
-   OTHER WORK
-   ========================================================= */
-
-.other-work {
-  list-style: none;
-  padding-left: 0;
-}
-
-.other-work li {
-  margin-bottom: 14px;
-}
-
-.other-work a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.other-work a:hover {
-  color: var(--accent);
 }
 
 /* =========================================================
@@ -410,10 +447,18 @@ footer {
 }
 
 /* =========================================================
-   REDUCED MOTION
+   REDUCED MOTION / ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  body {
+    cursor: auto;
+  }
+
+  .cursor {
+    display: none;
+  }
+
   * {
     animation: none !important;
     transition: none !important;

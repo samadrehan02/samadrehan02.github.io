@@ -1,14 +1,14 @@
 /* =========================================================
-   SCROLL REVEAL (once, intent-based)
+   SCROLL REVEAL (ONCE)
    ========================================================= */
 
 (() => {
-  const revealObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -19,50 +19,52 @@
   );
 
   document.querySelectorAll(".reveal").forEach(el => {
-    revealObserver.observe(el);
+    observer.observe(el);
   });
 })();
 
 /* =========================================================
    PROJECT CARD INTERACTION
-   - mouse-follow glow (existing behavior)
-   - subtle 3D tilt (research-inspection feel)
+   - mouse-follow glow
+   - subtle 3D tilt
+   - hover-gated (no random glow)
    ========================================================= */
 
 (() => {
-  const projects = document.querySelectorAll(".project");
+  const cards = document.querySelectorAll(".project");
 
-  projects.forEach(card => {
+  cards.forEach(card => {
     let rafId = null;
 
-    function updateInteraction(event) {
+    function update(event) {
       const rect = card.getBoundingClientRect();
-
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
 
-      // Glow position
       card.style.setProperty("--mx", `${x}px`);
       card.style.setProperty("--my", `${y}px`);
 
-      // Normalized values for tilt
-      const nx = (x / rect.width) - 0.5;
-      const ny = (y / rect.height) - 0.5;
+      const nx = x / rect.width - 0.5;
+      const ny = y / rect.height - 0.5;
 
       card.style.setProperty("--ry", `${nx * -3}deg`);
       card.style.setProperty("--rx", `${ny * 3}deg`);
     }
 
-    card.addEventListener("mousemove", event => {
-      if (rafId) return;
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("is-hovered");
+    });
 
+    card.addEventListener("mousemove", e => {
+      if (rafId) return;
       rafId = requestAnimationFrame(() => {
-        updateInteraction(event);
+        update(e);
         rafId = null;
       });
     });
 
     card.addEventListener("mouseleave", () => {
+      card.classList.remove("is-hovered");
       card.style.removeProperty("--mx");
       card.style.removeProperty("--my");
       card.style.setProperty("--rx", "0deg");
@@ -73,9 +75,6 @@
 
 /* =========================================================
    FLAGSHIP TOGGLE
-   - height animation
-   - chevron rotation
-   - stagger handled in CSS
    ========================================================= */
 
 (() => {
@@ -103,15 +102,65 @@
 })();
 
 /* =========================================================
+   CUSTOM CURSOR (FOLLOW + INVERT)
+   ========================================================= */
+
+(() => {
+  const cursor = document.querySelector(".cursor");
+  if (!cursor) return;
+
+  // Disable on reduced motion or coarse pointers
+  if (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !window.matchMedia("(pointer: fine)").matches
+  ) {
+    cursor.style.display = "none";
+    document.body.style.cursor = "auto";
+    return;
+  }
+
+  let x = 0, y = 0;
+  let targetX = 0, targetY = 0;
+
+  document.addEventListener("mousemove", e => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
+
+  function animate() {
+    x += (targetX - x) * 0.18;
+    y += (targetY - y) * 0.18;
+    cursor.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  /* -----------------------------------------
+     Cursor interaction states
+     ----------------------------------------- */
+
+  document.querySelectorAll("[data-cursor], a, .project, .flagship-toggle")
+    .forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+      });
+
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+      });
+    });
+})();
+
+/* =========================================================
    SECTION HEADER SCROLL EMPHASIS
-   - subtle reading context
    ========================================================= */
 
 (() => {
   const headers = document.querySelectorAll("h2");
   if (!headers.length) return;
 
-  function updateHeaderFocus() {
+  function update() {
     const vh = window.innerHeight;
 
     headers.forEach(h => {
@@ -121,13 +170,12 @@
     });
   }
 
-  window.addEventListener("scroll", updateHeaderFocus, { passive: true });
-  updateHeaderFocus();
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 })();
 
 /* =========================================================
    MICRO CLICK FEEDBACK
-   - tactile, short, non-distracting
    ========================================================= */
 
 (() => {
@@ -146,20 +194,5 @@
         easing: "ease-out"
       }
     );
-  });
-})();
-
-/* =========================================================
-   REDUCED MOTION SAFETY NET
-   ========================================================= */
-
-(() => {
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  document.documentElement.classList.add("reduced-motion");
-
-  document.querySelectorAll(".project").forEach(card => {
-    card.style.transform = "none";
-    card.style.transition = "none";
   });
 })();
