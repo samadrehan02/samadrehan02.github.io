@@ -3,32 +3,27 @@
    ========================================================= */
 
 :root {
-  /* Background */
   --bg-start: #0b0d10;
   --bg-end: #14161b;
 
-  /* Surfaces */
   --surface: #1b1e24;
   --surface-hover: #232733;
 
-  /* Text */
   --text: #e7eaf0;
   --muted: #a6adbb;
 
-  /* Accent (very restrained) */
   --accent: #8ab4f8;
   --accent-secondary: #b39ddb;
   --accent-soft: rgba(138, 180, 248, 0.18);
 
   --radius: 14px;
 
-  /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   --duration-fast: 120ms;
   --duration-base: 260ms;
-  --duration-slow: 480ms;
+  --duration-slow: 520ms;
 }
 
 /* =========================================================
@@ -47,59 +42,13 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(
-      900px 500px at 15% -10%,
-      rgba(138, 180, 248, 0.10),
-      transparent 45%
-    ),
-    radial-gradient(
-      700px 400px at 85% 15%,
-      rgba(179, 157, 219, 0.08),
-      transparent 50%
-    ),
-    radial-gradient(
-      600px 300px at 50% 120%,
-      rgba(138, 180, 248, 0.06),
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      #0b0d10 0%,
-      #11141a 40%,
-      #14161b 100%
-    );
+    radial-gradient(900px 500px at 15% -10%, rgba(138,180,248,0.10), transparent 45%),
+    radial-gradient(700px 400px at 85% 15%, rgba(179,157,219,0.08), transparent 50%),
+    linear-gradient(180deg, #0b0d10 0%, #11141a 40%, #14161b 100%);
   color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.65;
-}
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
-}
-
-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  border: 3px solid transparent;
-  background-clip: content-box;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.28);
 }
 
 /* =========================================================
@@ -110,7 +59,6 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 860px;
   margin: 0 auto;
   padding: 72px 20px 120px;
-  animation: fadeUp var(--duration-slow) var(--ease-soft) both;
 }
 
 /* =========================================================
@@ -140,10 +88,11 @@ h2::after {
   margin-top: 10px;
   background: linear-gradient(
     90deg,
-    rgba(138, 180, 248, 0.9),
-    rgba(138, 180, 248, 0.35),
+    rgba(138,180,248,0.9),
+    rgba(138,180,248,0.35),
     transparent
   );
+  transform-origin: left;
 }
 
 h3 {
@@ -158,50 +107,11 @@ p {
 
 .tagline {
   margin-top: 12px;
-  background: linear-gradient(
-    90deg,
-    var(--accent),
-    var(--accent-secondary)
-  );
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-weight: 500;
-}
-
-.research-note {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.research-block {
-  margin-top: 14px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(138, 180, 248, 0.08),
-    rgba(138, 180, 248, 0.02)
-  );
-  font-size: 0.95rem;
-}
-
-.research-item {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 8px;
-  color: var(--muted);
-}
-
-.research-item strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.research-item .icon {
-  opacity: 0.7;
-  font-size: 0.95rem;
 }
 
 .intro {
@@ -211,16 +121,7 @@ p {
 }
 
 /* =========================================================
-   HERO STAGGER
-   ========================================================= */
-
-.hero h1 { animation: fadeUp 500ms var(--ease-soft) both; }
-.hero .tagline { animation: fadeUp 620ms var(--ease-soft) both; }
-.hero .intro { animation: fadeUp 740ms var(--ease-soft) both; }
-.hero .links { animation: fadeUp 860ms var(--ease-soft) both; }
-
-/* =========================================================
-   LINKS
+   HERO LINKS
    ========================================================= */
 
 .links {
@@ -251,8 +152,8 @@ p {
     background: linear-gradient(180deg, var(--surface-hover), #1d2130);
     border-color: var(--accent-soft);
     box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.45),
-      0 0 0 1px rgba(138, 180, 248, 0.12);
+      0 8px 24px rgba(0,0,0,0.45),
+      0 0 0 1px rgba(138,180,248,0.12);
   }
 }
 
@@ -263,22 +164,15 @@ p {
 .project {
   position: relative;
   background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0.00) 18%
-    ),
-    linear-gradient(
-      180deg,
-      #1b1e24,
-      #161a21
-    );
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 18%),
+    linear-gradient(180deg, #1b1e24, #161a21);
   border-radius: var(--radius);
   padding: 28px;
   margin-bottom: 22px;
   box-shadow:
-    0 10px 32px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 10px 32px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  transform-style: preserve-3d;
   transition:
     transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out),
@@ -288,93 +182,29 @@ p {
 @media (hover: hover) {
   .project:hover {
     background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.00) 22%
-      ),
-      linear-gradient(
-        180deg,
-        #232733,
-        #1a1f2c
-      );
+      linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.00) 22%),
+      linear-gradient(180deg, #232733, #1a1f2c);
+    transform:
+      perspective(900px)
+      rotateX(var(--rxrx, 0deg))
+      rotateY(var(--Rry, 0deg))
+      translateY(-2px);
   }
 }
 
-/* =========================================================
-   FLAGSHIP TOGGLE
-   ========================================================= */
-
-.flagship-toggle {
-  margin: 32px 0 18px;
-  padding: 16px 20px;
-  background: linear-gradient(180deg, var(--surface), #181b22);
-  border-radius: var(--radius);
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  font-weight: 500;
-  color: var(--text);
-
-  transition:
-    background var(--duration-base) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
-}
-
-.flagship-toggle:hover {
-  background: linear-gradient(180deg, var(--surface-hover), #1d2130);
-  transform: translateY(-1px);
-}
-
-.flagship-toggle .count {
-  color: var(--muted);
-  margin-left: auto;
-  margin-right: 10px;
-}
-
-.flagship-toggle .chevron {
-  transition: transform var(--duration-base) var(--ease-out);
-}
-
-.flagship-toggle.open .chevron {
-  transform: rotate(90deg);
-}
-
-.flagship-hidden {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-
-  transition:
-    max-height 520ms var(--ease-soft),
-    opacity 260ms var(--ease-out),
-    transform 260ms var(--ease-out);
-}
-
-.flagship-hidden.open {
-  max-height: 2000px; /* safely larger than content */
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* Glow */
 .project::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-
   background: radial-gradient(
-    260px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(138, 180, 248, 0.14),
-    rgba(138, 180, 248, 0.06) 40%,
+    260px circle at var(--mx,50%) var(--my,50%),
+    rgba(138,180,248,0.14),
+    rgba(138,180,248,0.06) 40%,
     transparent 65%
   );
-
   opacity: 0;
   transition: opacity var(--duration-fast) var(--ease-out);
 }
@@ -384,6 +214,10 @@ p {
     opacity: 0.85;
   }
 }
+
+/* =========================================================
+   PROJECT CONTENT
+   ========================================================= */
 
 .project-desc {
   margin-top: 6px;
@@ -403,12 +237,10 @@ p {
 .project-focus {
   margin-top: 14px;
   padding-left: 14px;
-  border-left: 2px solid transparent;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(138, 180, 248, 0.35),
-      rgba(138, 180, 248, 0.05)
+    linear-gradient(to bottom,
+      rgba(138,180,248,0.35),
+      rgba(138,180,248,0.05)
     ) left / 2px 100% no-repeat;
   color: var(--muted);
   font-size: 0.95rem;
@@ -419,34 +251,119 @@ p {
   font-weight: 500;
 }
 
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.project-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.project-badge.research {
+  background: rgba(138,180,248,0.18);
+  color: var(--accent);
+}
+
+.project-badge.open {
+  background: rgba(179,157,219,0.18);
+  color: var(--accent-secondary);
+}
+
+/* =========================================================
+   LINKS IN PROJECTS
+   ========================================================= */
+
 .project a {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   margin-top: 14px;
   font-size: 0.95rem;
   color: var(--accent);
   font-weight: 500;
   text-decoration: none;
+  position: relative;
+}
 
-  background: linear-gradient(
-    90deg,
-    rgba(138, 180, 248, 0.15),
-    rgba(138, 180, 248, 0.00)
-  );
-  background-size: 0% 100%;
-  background-repeat: no-repeat;
+.project a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.project a:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   FLAGSHIP TOGGLE
+   ========================================================= */
+
+.flagship-toggle {
+  margin: 32px 0 18px;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, var(--surface), #181b22);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
   transition:
-    background-size var(--duration-base) var(--ease-out),
-    color var(--duration-base) var(--ease-out);
+    background var(--duration-base) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
-.project a:hover {
-  background-size: 100% 100%;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.flagship-toggle:hover {
+  background: linear-gradient(180deg, var(--surface-hover), #1d2130);
+  transform: translateY(-1px);
 }
 
+.flagship-hidden {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    max-height 520ms var(--ease-soft),
+    opacity 260ms var(--ease-out),
+    transform 260ms var(--ease-out);
+}
+
+.flagship-hidden.open {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition:
+    opacity var(--duration-slow) var(--ease-soft),
+    transform var(--duration-slow) var(--ease-soft);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
 /* =========================================================
    OTHER WORK
@@ -478,15 +395,6 @@ footer {
   margin-top: 120px;
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-/* =========================================================
-   MOTION
-   ========================================================= */
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================================================

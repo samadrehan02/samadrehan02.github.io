@@ -13,15 +13,17 @@
     <!-- ================= HERO ================= -->
     <header class="hero">
       <h1>Samad Rehan</h1>
-      <p class="tagline">Machine Learning Engineer focused on Open Source systems</p>
-      <p class="research-note">
-        Emphasis on reproducibility, open evaluation, and failure-mode analysis
-        in low-resource and mixed-language settings.
+
+      <p class="tagline">
+        Research-driven ML Engineer working on open-source LLM systems
       </p>
+
       <p class="intro">
-        I build practical machine learning systems with a focus on LLMs, NLP pipelines,
-        and production reliability. Most of my work is open source and designed around
-        real-world constraints rather than demos.
+        I work on machine learning systems with an emphasis on open research,
+        reproducibility, and real-world failure modes. My interests lie in LLM
+        behavior under constraints, structured generation, and low-resource,
+        mixed-language NLP. Most of my work is open source and designed to be
+        inspected, reproduced, and extended.
       </p>
 
       <nav class="links">
@@ -37,67 +39,71 @@
       <h2>Flagship Projects</h2>
 
       <!-- AI Medical Scribe -->
-      <div class="project">
-        <h3>AI Medical Scribe</h3>
-        <div class="research-block">
-          <div class="research-item">
-            <span class="icon">🧪</span>
-            <strong>Research focus:</strong>
-            Hallucination control and structured generation in
-            code-switched Hindi/Hinglish medical ASR pipelines.
-          </div>
-
-          <div class="research-item">
-            <span class="icon">📌</span>
-            <strong>Key findings:</strong>
-            Entity-first pipelines and schema-constrained decoding
-            reduced invalid clinical outputs under noisy ASR.
-          </div>
-        </div>
+      <div class="project reveal">
+        <h3>
+          AI Medical Scribe
+          <span class="project-badge research">Research</span>
+          <span class="project-badge open">Open Source</span>
+        </h3>
 
         <p class="project-desc">
-          Real-time medical transcription and clinical note generation from noisy
-          doctor–patient conversations in outpatient settings.
+          Real-time transcription and structured clinical note generation from
+          noisy Hindi/Hinglish doctor–patient conversations.
         </p>
 
         <p class="project-focus">
-          <strong>System Overview:</strong><br />
-          Live audio stream → Hindi/Hinglish ASR → entity extraction →
-          constrained LLM generation → structured OPD note + export
+          <strong>Research focus:</strong><br />
+          Studying hallucination control, structured generation, and error
+          propagation in low-resource, code-switched medical ASR pipelines.
+        </p>
+
+        <p class="project-focus">
+          <strong>System overview:</strong><br />
+          Live audio stream → Hindi/Hinglish ASR →
+          clinical entity extraction →
+          schema-constrained LLM generation →
+          structured OPD note export
         </p>
 
         <ul>
           <li>
-            Chose a lightweight ASR pipeline optimized for real-time latency and
-            conversational Hindi/Hinglish instead of maximizing offline WER scores
+            Investigated entity-first pipelines as a mechanism to reduce
+            hallucinated medical facts compared to end-to-end generation
           </li>
           <li>
-            Performed clinical entity extraction before LLM generation to reduce
-            hallucinations and enforce medical safety boundaries
+            Evaluated schema-constrained decoding vs free-form generation
+            under noisy ASR and partial utterances
           </li>
           <li>
-            Used instruction-tuned LLMs with strict output schemas rather than
-            free-form generation to maintain consistency and auditability
-          </li>
-          <li>
-            Designed session-scoped workflows with speaker handling to support
+            Designed session-scoped workflows with speaker handling for
             continuous, real-time clinical usage
+          </li>
+          <li>
+            Focused on failure visibility and auditability rather than
+            maximizing offline benchmark scores
           </li>
         </ul>
 
         <p class="project-focus">
+          <strong>Outcomes:</strong><br />
+          • Significantly reduced invalid or hallucinated clinical entities under noisy ASR<br />
+          • Improved consistency and structural validity of generated notes across sessions<br />
+          • Identified normalization errors as a larger failure source than raw ASR WER
+        </p>
+
+        <p class="project-focus">
           <strong>Constraints:</strong>
-          real-time audio, noisy environments, mixed-language speech,
+          real-time audio, mixed-language speech,
           clinical safety, low tolerance for hallucinations
         </p>
 
         <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank">
-          View on GitHub →
+          Open-source implementation →
         </a>
       </div>
 
       <!-- ================= OTHER FLAGSHIP PROJECTS ================= -->
-      <div class="flagship-toggle" id="flagshipToggle">
+      <div class="flagship-toggle reveal" id="flagshipToggle">
         <span>Other flagship projects</span>
         <span class="count">(2)</span>
         <span class="chevron">▸</span>
@@ -106,97 +112,119 @@
       <div class="flagship-hidden" id="flagshipHidden">
 
         <!-- Minutes of Meeting AI -->
-        <div class="project">
-          <h3>Minutes of Meeting AI</h3>
+        <div class="project reveal">
+          <h3>
+            Minutes of Meeting AI
+            <span class="project-badge research">Research</span>
+            <span class="project-badge open">Open Source</span>
+          </h3>
 
           <p class="project-desc">
-            Automated meeting transcription and summarization system focused on extracting
-            decisions, action items, and accountability from multi-speaker conversations.
+            Automated transcription and structured summarization of multi-speaker
+            meetings with a focus on decisions, action items, and accountability.
           </p>
 
           <p class="project-focus">
-            <strong>System Overview:</strong><br />
-            Raw transcript → speaker normalization →
+            <strong>Research focus:</strong><br />
+            Exploring structured extraction and constrained summarization
+            as alternatives to generic abstractive meeting summaries.
+          </p>
+
+          <p class="project-focus">
+            <strong>System overview:</strong><br />
+            Raw transcript →
+            speaker normalization →
             structured information extraction →
-            constrained LLM summarization →
-            actionable meeting notes
+            schema-constrained LLM summarization
           </p>
 
           <ul>
             <li>
-              Prioritized structured extraction of decisions, action items, and owners
-              instead of relying on generic abstractive summaries
+              Studied decision and action-item extraction under noisy,
+              overlapping speaker transcripts
             </li>
             <li>
-              Designed prompts and post-processing to handle noisy, multi-speaker transcripts
-              with interruptions and partial sentences
+              Designed prompts and post-processing to handle interruptions,
+              partial sentences, and implicit decisions
             </li>
             <li>
-              Used schema-constrained LLM outputs to ensure consistency across meetings
-              and enable downstream automation
-            </li>
-            <li>
-              Optimized for usefulness in follow-ups and accountability rather than
-              narrative completeness
+              Prioritized consistency and downstream usability over narrative fluency
             </li>
           </ul>
 
           <p class="project-focus">
+            <strong>Outcomes:</strong><br />
+            • More consistent extraction of actionable items across meetings<br />
+            • Reduced variance in summaries compared to free-form generation
+          </p>
+
+          <p class="project-focus">
             <strong>Constraints:</strong>
-            noisy transcripts, overlapping speakers, implicit decisions,
-            need for consistent structure across meetings
+            noisy transcripts, overlapping speakers,
+            implicit decisions, need for consistent structure
           </p>
 
           <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank">
-            View on GitHub →
+            Open-source implementation →
           </a>
         </div>
 
         <!-- TCN Stock Prediction -->
-        <div class="project">
-          <h3>TCN Stock Prediction</h3>
+        <div class="project reveal">
+          <h3>
+            TCN Stock Prediction
+            <span class="project-badge research">Research</span>
+            <span class="project-badge open">Open Source</span>
+          </h3>
 
           <p class="project-desc">
-            Time-series stock forecasting system using a hybrid Temporal Convolutional Network
-            and Transformer architecture, designed for reproducibility and stable inference.
+            Time-series forecasting system combining Temporal Convolutional
+            Networks and Transformers for stable, reproducible inference.
           </p>
 
           <p class="project-focus">
-            <strong>System Overview:</strong><br />
+            <strong>Research focus:</strong><br />
+            Investigating hybrid architectures for balancing local temporal
+            pattern capture with long-range dependency modeling.
+          </p>
+
+          <p class="project-focus">
+            <strong>System overview:</strong><br />
             Historical price data →
             feature normalization →
-            TCN for local temporal patterns →
-            Transformer for long-range dependencies →
-            forecasting output
+            TCN for short-term structure →
+            Transformer for long-range dependencies
           </p>
 
           <ul>
             <li>
-              Combined TCNs for efficient modeling of short-term temporal structure with
-              Transformers for capturing longer-range dependencies
+              Analyzed tradeoffs between TCN-only, Transformer-only,
+              and hybrid architectures
             </li>
             <li>
-              Prioritized reproducibility and stable inference behavior over one-off
-              benchmark optimization
+              Emphasized reproducibility and stable inference behavior
+              over one-off benchmark optimization
             </li>
             <li>
-              Built an end-to-end pipeline with clear data splits to reduce leakage and
-              improve evaluation reliability
-            </li>
-            <li>
-              Focused on inference efficiency to support repeated forecasting rather than
-              single-run experimentation
+              Designed strict data splits to reduce leakage and
+              misleading evaluation
             </li>
           </ul>
 
           <p class="project-focus">
+            <strong>Outcomes:</strong><br />
+            • Achieved stable forecasting performance across repeated runs<br />
+            • Reduced inference variance compared to Transformer-only baselines
+          </p>
+
+          <p class="project-focus">
             <strong>Constraints:</strong>
-            non-stationary time-series data, risk of data leakage,
-            need for repeatable evaluation, inference efficiency
+            non-stationary time-series data,
+            data leakage risk, inference efficiency
           </p>
 
           <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank">
-            View on GitHub →
+            Open-source implementation →
           </a>
         </div>
 
@@ -207,22 +235,22 @@
     <section>
       <h2>Skills</h2>
 
-      <div class="project">
-        <h3>Applied ML & LLM Systems</h3>
+      <div class="project reveal">
+        <h3>ML Research & LLM Systems</h3>
         <ul>
-          <li>LLMs, instruction tuning, prompt constraints, output validation</li>
+          <li>LLM behavior analysis, instruction tuning, output constraints</li>
           <li>RAG pipelines, NL2SQL, information extraction, NER</li>
           <li>Hindi & Hinglish NLP, ASR pipelines</li>
         </ul>
       </div>
 
-      <div class="project">
-        <h3>ML Engineering & Deployment</h3>
+      <div class="project reveal">
+        <h3>ML Engineering & Reproducibility</h3>
         <ul>
           <li>PyTorch, Hugging Face, scikit-learn</li>
           <li>FastAPI inference services, REST APIs</li>
-          <li>GPU inference, latency optimization, batching</li>
-          <li>Docker, AWS (EC2, S3, IAM), Linux</li>
+          <li>Evaluation pipelines, latency analysis</li>
+          <li>Docker, AWS, Linux</li>
         </ul>
       </div>
     </section>
@@ -231,16 +259,23 @@
     <section>
       <h2>Experience</h2>
 
-      <div class="project">
+      <div class="project reveal">
         <h3>Machine Learning Engineer — Augurs Technologies</h3>
         <p class="project-desc">
-          Designing and deploying LLM-powered systems used in production environments.
+          Designing and deploying LLM-powered systems with an emphasis on
+          reliability, observability, and controlled generation.
         </p>
 
         <ul>
-          <li>Built FastAPI-based inference services for LLMs and RAG pipelines</li>
-          <li>Applied MLOps practices for versioning, monitoring, and rollback</li>
-          <li>Optimized latency and cost across GPU-hosted and cloud-managed models</li>
+          <li>
+            Built and maintained FastAPI-based inference services for LLMs and RAG pipelines
+          </li>
+          <li>
+            Applied MLOps practices for versioning, monitoring, and rollback
+          </li>
+          <li>
+            Optimized latency and cost across GPU-hosted and cloud-managed models
+          </li>
         </ul>
       </div>
     </section>
@@ -249,7 +284,7 @@
     <section>
       <h2>Education</h2>
 
-      <div class="project">
+      <div class="project reveal">
         <h3>Vellore Institute of Technology</h3>
         <p class="project-desc">
           B.Tech in Computer Science and Engineering (AI & ML)
@@ -257,7 +292,7 @@
 
         <ul>
           <li>Graduated 2025</li>
-          <li>Focus on applied machine learning systems</li>
+          <li>Focus on applied machine learning and system design</li>
         </ul>
       </div>
     </section>
@@ -267,24 +302,19 @@
       <h2>Other LLM & ML Work</h2>
 
       <ul class="other-work">
-        <li>
+        <li class="reveal">
           <a href="https://github.com/samadrehan02/Production-grade-RAG-Assistant-for-Customer-Analytics-and-Support" target="_blank">
             Production-grade RAG Assistant
           </a>
         </li>
-        <li>
+        <li class="reveal">
           <a href="https://github.com/samadrehan02/turbo-couscousv2-" target="_blank">
             NL2SQL Conversational System
           </a>
         </li>
-        <li>
+        <li class="reveal">
           <a href="https://github.com/samadrehan02/DCGAN-Handwritten-digits-MNIST" target="_blank">
             DCGAN (MNIST)
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/samadrehan02/Personal_Record_prediction_gym" target="_blank">
-            Gym PR Prediction Tool
           </a>
         </li>
       </ul>
@@ -292,7 +322,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer>
-      <p>Built with plain HTML, CSS, and a small amount of JavaScript.</p>
+      <p>Built with plain HTML, CSS, and JavaScript. Open, inspectable, and reproducible.</p>
     </footer>
 
   </main>
