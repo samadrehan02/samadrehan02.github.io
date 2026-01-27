@@ -169,6 +169,41 @@ p {
   font-weight: 500;
 }
 
+.research-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.research-block {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(138, 180, 248, 0.08),
+    rgba(138, 180, 248, 0.02)
+  );
+  font-size: 0.95rem;
+}
+
+.research-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.research-item strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.research-item .icon {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
 .intro {
   margin-top: 28px;
   max-width: 720px;
