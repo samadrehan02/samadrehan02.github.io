@@ -246,27 +246,6 @@ p {
   }
 }
 
-/* Controlled glow */
-.project::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(
-    260px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(138,180,248,0.14),
-    rgba(138,180,248,0.06) 40%,
-    transparent 65%
-  );
-  opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-out);
-}
-
-.project.is-hovered::after {
-  opacity: 0.85;
-}
-
 /* =========================================================
    PROJECT CONTENT
    ========================================================= */

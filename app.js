@@ -41,18 +41,14 @@
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
 
-      card.style.setProperty("--mx", `${x}px`);
-      card.style.setProperty("--my", `${y}px`);
-
       const nx = x / rect.width - 0.5;
       const ny = y / rect.height - 0.5;
 
-      card.style.setProperty("--ry", `${nx * -3}deg`);
-      card.style.setProperty("--rx", `${ny * 3}deg`);
+      card.style.setProperty("--ry", `${nx * -4}deg`);
+      card.style.setProperty("--rx", `${ny * 4}deg`);
     }
 
     card.addEventListener("mouseenter", () => {
-      card.classList.add("is-hovered");
     });
 
     card.addEventListener("mousemove", e => {
@@ -64,7 +60,6 @@
     });
 
     card.addEventListener("mouseleave", () => {
-      card.classList.remove("is-hovered");
       card.style.removeProperty("--mx");
       card.style.removeProperty("--my");
       card.style.setProperty("--rx", "0deg");
