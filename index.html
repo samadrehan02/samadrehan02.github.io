@@ -157,46 +157,61 @@
           </a>
         </div>
 
-        <!-- TCN Stock Prediction -->
+        <!-- Dynamic Pricing System -->
         <div class="project reveal" data-cursor>
           <h3>
-            TCN Stock Prediction
-            <span class="badge research">Research</span>
+            Dynamic Pricing System for Retail
+            <span class="badge applied">Applied ML</span>
             <span class="badge open">Open Source</span>
           </h3>
 
           <p class="project-desc">
-            Time-series forecasting system using a hybrid Temporal Convolutional
-            Network and Transformer architecture.
+            Production-grade dynamic pricing system for a general retail store,
+            combining demand forecasting with constraint-based price optimization.
           </p>
 
           <p class="project-focus">
-            <strong>Research focus:</strong><br />
-            Investigating hybrid architectures for balancing local temporal
-            pattern capture with long-range dependency modeling.
+            <strong>Engineering focus:</strong><br />
+            Designing a real-world pricing system that optimizes revenue while
+            respecting margin constraints, price stability, inventory risk,
+            and operational safety.
           </p>
 
           <ul>
             <li>
-              Analyzed tradeoffs between TCN-only, Transformer-only,
-              and hybrid architectures
+              Built a two-stage system with ML-based demand forecasting
+              (XGBoost, walk-forward validation) and a deterministic pricing optimizer
             </li>
             <li>
-              Emphasized reproducibility and stable inference behavior over
-              one-off benchmark optimization
+              Implemented hard business constraints including minimum margin,
+              maximum daily price change, clearance deadlines, and stock-out avoidance
             </li>
             <li>
-              Designed strict data splits to reduce leakage and misleading evaluation
+              Designed offline counterfactual simulation comparing static,
+              rule-based, and ML-driven pricing strategies
+            </li>
+            <li>
+              Added comprehensive evaluation with revenue trends, category-level
+              breakdowns, and price-change stability analysis
+            </li>
+            <li>
+              Defined production monitoring, drift detection, and retraining
+              playbooks for safe deployment
             </li>
           </ul>
 
           <p class="project-focus">
             <strong>Outcomes:</strong><br />
-            • Stable forecasting performance across repeated runs<br />
-            • Reduced inference variance compared to Transformer-only baselines
+            • Demonstrated stable, constraint-respecting ML pricing behavior<br />
+            • Validated pricing safety via offline simulation and volatility analysis<br />
+            • Produced reproducible evaluation artifacts and visualizations
           </p>
 
-          <a href="https://github.com/samadrehan02/tcn-stockprediction" target="_blank" data-cursor>
+          <a
+            href="https://github.com/samadrehan02/dynamic-pricing-system"
+            target="_blank"
+            data-cursor
+          >
             Open-source implementation →
           </a>
         </div>
