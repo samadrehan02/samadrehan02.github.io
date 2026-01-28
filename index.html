@@ -41,7 +41,66 @@
     <section>
       <h2>Flagship Projects</h2>
 
-      <!-- AI Medical Scribe -->
+      <!-- Dynamic Pricing System (PRIMARY) -->
+      <div class="project reveal" data-cursor>
+        <h3>
+          Dynamic Pricing System for Retail
+          <span class="badge applied">Applied ML</span>
+          <span class="badge open">Open Source</span>
+        </h3>
+
+        <p class="project-desc">
+          Production-grade dynamic pricing system for a general retail store,
+          combining demand forecasting with constraint-based price optimization.
+        </p>
+
+        <p class="project-focus">
+          <strong>Engineering focus:</strong><br />
+          Designing a real-world pricing system that optimizes revenue while
+          respecting margin constraints, price stability, inventory risk,
+          and operational safety.
+        </p>
+
+        <ul>
+          <li>
+            Built a two-stage system with ML-based demand forecasting
+            (XGBoost, walk-forward validation) and a deterministic pricing optimizer
+          </li>
+          <li>
+            Implemented hard business constraints including minimum margin,
+            maximum daily price change, clearance deadlines, and stock-out avoidance
+          </li>
+          <li>
+            Designed offline counterfactual simulation comparing static,
+            rule-based, and ML-driven pricing strategies
+          </li>
+          <li>
+            Added comprehensive evaluation with revenue trends, category-level
+            breakdowns, and price-change stability analysis
+          </li>
+          <li>
+            Defined production monitoring, drift detection, and retraining
+            playbooks for safe deployment
+          </li>
+        </ul>
+
+        <p class="project-focus">
+          <strong>Outcomes:</strong><br />
+          • Demonstrated stable, constraint-respecting ML pricing behavior<br />
+          • Validated pricing safety via offline simulation and volatility analysis<br />
+          • Produced reproducible evaluation artifacts and visualizations
+        </p>
+
+        <a
+          href="https://github.com/samadrehan02/dynamic-pricing-system"
+          target="_blank"
+          data-cursor
+        >
+          Open-source implementation →
+        </a>
+      </div>
+
+      <!-- AI Medical Scribe (SECOND) -->
       <div class="project reveal" data-cursor>
         <h3>
           AI Medical Scribe
@@ -99,7 +158,11 @@
           clinical safety, low tolerance for hallucinations
         </p>
 
-        <a href="https://github.com/samadrehan02/upgraded-waddle-llm" target="_blank" data-cursor>
+        <a
+          href="https://github.com/samadrehan02/upgraded-waddle-llm"
+          target="_blank"
+          data-cursor
+        >
           Open-source implementation →
         </a>
       </div>
@@ -121,9 +184,9 @@
           </h3>
 
           <p class="project-desc">
-            Automated transcription and structured summarization system focused
-            on extracting decisions, action items, and accountability from
-            multi-speaker conversations.
+            Structured meeting intelligence system focused on extracting
+            decisions, action items, and accountability from multi-speaker
+            conversations.
           </p>
 
           <p class="project-focus">
@@ -152,63 +215,8 @@
             • Reduced variance compared to free-form LLM summaries
           </p>
 
-          <a href="https://github.com/samadrehan02/MinutesofMeetingAI" target="_blank" data-cursor>
-            Open-source implementation →
-          </a>
-        </div>
-
-        <!-- Dynamic Pricing System -->
-        <div class="project reveal" data-cursor>
-          <h3>
-            Dynamic Pricing System for Retail
-            <span class="badge applied">Applied ML</span>
-            <span class="badge open">Open Source</span>
-          </h3>
-
-          <p class="project-desc">
-            Production-grade dynamic pricing system for a general retail store,
-            combining demand forecasting with constraint-based price optimization.
-          </p>
-
-          <p class="project-focus">
-            <strong>Engineering focus:</strong><br />
-            Designing a real-world pricing system that optimizes revenue while
-            respecting margin constraints, price stability, inventory risk,
-            and operational safety.
-          </p>
-
-          <ul>
-            <li>
-              Built a two-stage system with ML-based demand forecasting
-              (XGBoost, walk-forward validation) and a deterministic pricing optimizer
-            </li>
-            <li>
-              Implemented hard business constraints including minimum margin,
-              maximum daily price change, clearance deadlines, and stock-out avoidance
-            </li>
-            <li>
-              Designed offline counterfactual simulation comparing static,
-              rule-based, and ML-driven pricing strategies
-            </li>
-            <li>
-              Added comprehensive evaluation with revenue trends, category-level
-              breakdowns, and price-change stability analysis
-            </li>
-            <li>
-              Defined production monitoring, drift detection, and retraining
-              playbooks for safe deployment
-            </li>
-          </ul>
-
-          <p class="project-focus">
-            <strong>Outcomes:</strong><br />
-            • Demonstrated stable, constraint-respecting ML pricing behavior<br />
-            • Validated pricing safety via offline simulation and volatility analysis<br />
-            • Produced reproducible evaluation artifacts and visualizations
-          </p>
-
           <a
-            href="https://github.com/samadrehan02/dynamic-pricing-system"
+            href="https://github.com/samadrehan02/MinutesofMeetingAI"
             target="_blank"
             data-cursor
           >
@@ -218,6 +226,7 @@
 
       </div>
     </section>
+
 
     <!-- ================= SKILLS ================= -->
     <section>
