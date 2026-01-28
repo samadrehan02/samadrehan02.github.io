@@ -304,6 +304,10 @@ p {
   background: rgba(179,157,219,0.18);
   color: var(--accent-secondary);
 }
+.badge.applied {
+  background: rgba(138,180,248,0.28);
+  color: var(--accent);
+}
 
 /* =========================================================
    PROJECT LINKS
