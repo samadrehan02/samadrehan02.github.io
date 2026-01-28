@@ -100,73 +100,6 @@
         </a>
       </div>
 
-      <!-- AI Medical Scribe (SECOND) -->
-      <div class="project reveal" data-cursor>
-        <h3>
-          AI Medical Scribe
-          <span class="badge research">Research</span>
-          <span class="badge open">Open Source</span>
-        </h3>
-
-        <p class="project-desc">
-          Real-time transcription and structured clinical note generation from
-          noisy Hindi/Hinglish doctor–patient conversations in outpatient settings.
-        </p>
-
-        <p class="project-focus">
-          <strong>Research focus:</strong><br />
-          Studying hallucination control, error propagation, and structured
-          generation reliability in low-resource, code-switched medical ASR
-          pipelines.
-        </p>
-
-        <p class="project-focus">
-          <strong>System overview:</strong><br />
-          Live audio → Hindi/Hinglish ASR → clinical entity extraction →
-          schema-constrained LLM generation → structured OPD note export
-        </p>
-
-        <ul>
-          <li>
-            Investigated entity-first pipelines as a mitigation strategy for
-            hallucinated clinical facts compared to end-to-end generation
-          </li>
-          <li>
-            Evaluated schema-constrained decoding vs free-form generation under
-            noisy ASR, partial utterances, and interruptions
-          </li>
-          <li>
-            Designed session-scoped workflows with speaker handling to support
-            continuous, real-time clinical usage
-          </li>
-          <li>
-            Prioritized failure visibility and auditability over offline benchmark
-            optimization
-          </li>
-        </ul>
-
-        <p class="project-focus">
-          <strong>Outcomes:</strong><br />
-          • Significantly reduced invalid or hallucinated clinical entities<br />
-          • Improved structural consistency of generated OPD notes across sessions<br />
-          • Identified text normalization as a larger error source than raw ASR WER
-        </p>
-
-        <p class="project-focus">
-          <strong>Constraints:</strong>
-          real-time audio, noisy environments, mixed-language speech,
-          clinical safety, low tolerance for hallucinations
-        </p>
-
-        <a
-          href="https://github.com/samadrehan02/upgraded-waddle-llm"
-          target="_blank"
-          data-cursor
-        >
-          Open-source implementation →
-        </a>
-      </div>
-
       <!-- Toggle -->
       <div class="flagship-toggle reveal" id="flagshipToggle" data-cursor>
         <span>Other flagship projects</span>
@@ -174,6 +107,74 @@
       </div>
 
       <div class="flagship-hidden" id="flagshipHidden">
+
+        <!-- AI Medical Scribe (SECOND) -->
+        <div class="project reveal" data-cursor>
+          <h3>
+            AI Medical Scribe
+            <span class="badge research">Research</span>
+            <span class="badge open">Open Source</span>
+          </h3>
+
+          <p class="project-desc">
+            Real-time transcription and structured clinical note generation from
+            noisy Hindi/Hinglish doctor–patient conversations in outpatient settings.
+          </p>
+
+          <p class="project-focus">
+            <strong>Research focus:</strong><br />
+            Studying hallucination control, error propagation, and structured
+            generation reliability in low-resource, code-switched medical ASR
+            pipelines.
+          </p>
+
+          <p class="project-focus">
+            <strong>System overview:</strong><br />
+            Live audio → Hindi/Hinglish ASR → clinical entity extraction →
+            schema-constrained LLM generation → structured OPD note export
+          </p>
+
+          <ul>
+            <li>
+              Investigated entity-first pipelines as a mitigation strategy for
+              hallucinated clinical facts compared to end-to-end generation
+            </li>
+            <li>
+              Evaluated schema-constrained decoding vs free-form generation under
+              noisy ASR, partial utterances, and interruptions
+            </li>
+            <li>
+              Designed session-scoped workflows with speaker handling to support
+              continuous, real-time clinical usage
+            </li>
+            <li>
+              Prioritized failure visibility and auditability over offline benchmark
+              optimization
+            </li>
+          </ul>
+
+          <p class="project-focus">
+            <strong>Outcomes:</strong><br />
+            • Significantly reduced invalid or hallucinated clinical entities<br />
+            • Improved structural consistency of generated OPD notes across sessions<br />
+            • Identified text normalization as a larger error source than raw ASR WER
+          </p>
+
+          <p class="project-focus">
+            <strong>Constraints:</strong>
+            real-time audio, noisy environments, mixed-language speech,
+            clinical safety, low tolerance for hallucinations
+          </p>
+
+          <a
+            href="https://github.com/samadrehan02/upgraded-waddle-llm"
+            target="_blank"
+            data-cursor
+          >
+            Open-source implementation →
+          </a>
+        </div>
+
 
         <!-- Minutes of Meeting AI -->
         <div class="project reveal" data-cursor>
