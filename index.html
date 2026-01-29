@@ -50,45 +50,54 @@
         </h3>
 
         <p class="project-desc">
-          Production-grade dynamic pricing system for a general retail store,
-          combining demand forecasting with constraint-based price optimization.
+          End-to-end dynamic pricing platform simulating a real retail pricing
+          environment, combining synthetic data generation, rule-based heuristics,
+          and ML-driven price optimization with full operational visibility.
         </p>
 
         <p class="project-focus">
           <strong>Engineering focus:</strong><br />
-          Designing a real-world pricing system that optimizes revenue while
-          respecting margin constraints, price stability, inventory risk,
-          and operational safety.
+          Designing a production-style pricing system that balances revenue
+          optimization with safety constraints, operational overrides,
+          explainability, and real-time observability.
         </p>
 
         <ul>
           <li>
-            Built a two-stage system with ML-based demand forecasting
-            (XGBoost, walk-forward validation) and a deterministic pricing optimizer
+            Built a multi-strategy pricing pipeline supporting static pricing,
+            rule-based heuristics, synthetic bootstrapped pricing, and ML-driven
+            optimization
           </li>
           <li>
-            Implemented hard business constraints including minimum margin,
-            maximum daily price change, clearance deadlines, and stock-out avoidance
+            Implemented a pricing decision engine with hard business constraints
+            including minimum margin, bounded daily price changes, inventory pressure,
+            and override-based safety controls
           </li>
           <li>
-            Designed offline counterfactual simulation comparing static,
-            rule-based, and ML-driven pricing strategies
+            Designed a synthetic data generator to bootstrap historical price signals
+            for cold-start SKUs and controlled scenario testing
           </li>
           <li>
-            Added comprehensive evaluation with revenue trends, category-level
-            breakdowns, and price-change stability analysis
+            Developed an ML pricing runner that applies corrective pricing decisions
+            on top of historical trends to maximize revenue under constraints
           </li>
           <li>
-            Defined production monitoring, drift detection, and retraining
-            playbooks for safe deployment
+            Built a dual-service backend (FastAPI + Flask) with a Material-inspired
+            admin dashboard for SKU exploration, pricing decisions, alerts, and health
+            monitoring
+          </li>
+          <li>
+            Added explainability metadata and visual price history to clearly surface
+            why and when pricing strategies intervene
           </li>
         </ul>
 
         <p class="project-focus">
           <strong>Outcomes:</strong><br />
-          • Demonstrated stable, constraint-respecting ML pricing behavior<br />
-          • Validated pricing safety via offline simulation and volatility analysis<br />
-          • Produced reproducible evaluation artifacts and visualizations
+          • Demonstrated realistic, strategy-dependent price behavior across multiple SKUs<br />
+          • Showed ML-based price corrections outperforming static and rule-based baselines<br />
+          • Produced a fully interactive pricing dashboard suitable for demos and analysis<br />
+          • Validated system safety via constraints, overrides, and observable decision logs
         </p>
 
         <a
@@ -99,6 +108,7 @@
           Open-source implementation →
         </a>
       </div>
+
 
       <!-- Toggle -->
       <div class="flagship-toggle reveal" id="flagshipToggle" data-cursor>
