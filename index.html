@@ -2,338 +2,391 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Samad Rehan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samad Rehan — ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <!-- Custom cursor -->
-  <div class="cursor"></div>
 
-  <main class="container">
+  <!-- ── CURSOR ──────────────────────────────────────────────── -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- ================= HERO ================= -->
-    <header class="hero">
-      <h1>Samad Rehan</h1>
+  <!-- ── PARTICLES CANVAS ──────────────────────────────────── -->
+  <canvas id="particleCanvas"></canvas>
 
-      <p class="tagline">
-        Research-driven ML Engineer · Open-source LLM systems
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">SR<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certs</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ─────────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#skills" class="mob-link">Skills</a></li>
+      <li><a href="#experience" class="mob-link">Experience</a></li>
+      <li><a href="#projects" class="mob-link">Projects</a></li>
+      <li><a href="#certifications" class="mob-link">Certs</a></li>
+      <li><a href="#contact" class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="badge-dot"></span>Available for new roles</p>
+      <h1 class="hero-name">Samad<br/>Rehan<span class="accent">.</span></h1>
+      <div class="hero-typed-wrapper">
+        <span class="hero-typed" id="heroTyped"></span><span class="typed-cursor">|</span>
+      </div>
+      <p class="hero-sub">
+        Building production-grade LLM systems, RAG pipelines, and GPU-accelerated inference backends
+        that ship with measurable impact on latency, cost, and reliability.
       </p>
-
-      <p class="intro">
-        I work on machine learning systems with a research mindset, focusing on
-        reproducibility, controlled generation, and real-world failure modes.
-        My interests include LLM behavior under constraints, structured outputs,
-        and low-resource, mixed-language NLP. Most of my work is open source and
-        designed to be inspected, reproduced, and extended.
-      </p>
-
-      <nav class="links">
-        <a href="assets/samad-resume-2026.pdf" target="_blank" data-cursor>Resume</a>
-        <a href="https://github.com/samadrehan02" target="_blank" data-cursor>GitHub</a>
-        <a href="https://www.linkedin.com/in/samad-rehan-621443218/" target="_blank" data-cursor>LinkedIn</a>
-        <a href="mailto:samadrehan123456@gmail.com" data-cursor>Email</a>
-      </nav>
-    </header>
-
-    <!-- ================= PROJECTS ================= -->
-    <section>
-      <h2>Flagship Projects</h2>
-
-      <!-- Dynamic Pricing System (PRIMARY) -->
-      <div class="project reveal" data-cursor>
-        <h3>
-          Dynamic Pricing System for Retail
-          <span class="badge applied">Applied ML</span>
-          <span class="badge open">Open Source</span>
-        </h3>
-
-        <p class="project-desc">
-          End-to-end dynamic pricing platform simulating a real retail pricing
-          environment, combining synthetic data generation, rule-based heuristics,
-          and ML-driven price optimization with full operational visibility.
-        </p>
-
-        <p class="project-focus">
-          <strong>Engineering focus:</strong><br />
-          Designing a production-style pricing system that balances revenue
-          optimization with safety constraints, operational overrides,
-          explainability, and real-time observability.
-        </p>
-
-        <ul>
-          <li>
-            Built a multi-strategy pricing pipeline supporting static pricing,
-            rule-based heuristics, synthetic bootstrapped pricing, and ML-driven
-            optimization
-          </li>
-          <li>
-            Implemented a pricing decision engine with hard business constraints
-            including minimum margin, bounded daily price changes, inventory pressure,
-            and override-based safety controls
-          </li>
-          <li>
-            Designed a synthetic data generator to bootstrap historical price signals
-            for cold-start SKUs and controlled scenario testing
-          </li>
-          <li>
-            Developed an ML pricing runner that applies corrective pricing decisions
-            on top of historical trends to maximize revenue under constraints
-          </li>
-          <li>
-            Built a dual-service backend (FastAPI + Flask) with a Material-inspired
-            admin dashboard for SKU exploration, pricing decisions, alerts, and health
-            monitoring
-          </li>
-          <li>
-            Added explainability metadata and visual price history to clearly surface
-            why and when pricing strategies intervene
-          </li>
-        </ul>
-
-        <p class="project-focus">
-          <strong>Outcomes:</strong><br />
-          • Demonstrated realistic, strategy-dependent price behavior across multiple SKUs<br />
-          • Showed ML-based price corrections outperforming static and rule-based baselines<br />
-          • Produced a fully interactive pricing dashboard suitable for demos and analysis<br />
-          • Validated system safety via constraints, overrides, and observable decision logs
-        </p>
-
-        <a
-          href="https://github.com/samadrehan02/dynamic-pricing-system"
-          target="_blank"
-          data-cursor
-        >
-          Open-source implementation →
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="samad-resume-2026.pdf" class="btn btn-ghost" target="_blank">Resume ↗</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/samadrehan02" target="_blank" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:samadrehan123456@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
         </a>
       </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-
-      <!-- Toggle -->
-      <div class="flagship-toggle reveal" id="flagshipToggle" data-cursor>
-        <span>Other flagship projects</span>
-        <span class="chevron">▸</span>
-      </div>
-
-      <div class="flagship-hidden" id="flagshipHidden">
-
-        <!-- AI Medical Scribe (SECOND) -->
-        <div class="project reveal" data-cursor>
-          <h3>
-            AI Medical Scribe
-            <span class="badge research">LLM and NER</span>
-            <span class="badge open">Open Source</span>
-          </h3>
-
-          <p class="project-desc">
-            Real-time transcription and structured clinical note generation from
-            noisy Hindi/Hinglish doctor–patient conversations in outpatient settings.
+  <!-- ── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <p class="section-label">01 / About</p>
+      <h2 class="section-title">Engineering ML systems<br/>that work <em>in production</em>.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a Machine Learning Engineer based in Lucknow, India, currently at
+            <strong>Augurs Technologies</strong>. My work lives at the intersection of
+            LLM systems, NLP pipelines, and production inference infrastructure —
+            where the hard problems aren't just accuracy but latency, cost, and
+            reliability at scale.
           </p>
-
-          <p class="project-focus">
-            <strong>Research focus:</strong><br />
-            Studying hallucination control, error propagation, and structured
-            generation reliability in low-resource, code-switched medical ASR
-            pipelines.
+          <p>
+            I care about the parts of ML that get underspecified: ordering of
+            components, failure modes, safety constraints, and the tradeoffs that
+            only become clear when real traffic hits a system.
           </p>
-
-          <p class="project-focus">
-            <strong>System overview:</strong><br />
-            Live audio → Hindi/Hinglish ASR → clinical entity extraction →
-            schema-constrained LLM generation → structured OPD note export
-          </p>
-
-          <ul>
-            <li>
-              Investigated entity-first pipelines as a mitigation strategy for
-              hallucinated clinical facts compared to end-to-end generation
-            </li>
-            <li>
-              Evaluated schema-constrained decoding vs free-form generation under
-              noisy ASR, partial utterances, and interruptions
-            </li>
-            <li>
-              Designed session-scoped workflows with speaker handling to support
-              continuous, real-time clinical usage
-            </li>
-            <li>
-              Prioritized failure visibility and auditability over offline benchmark
-              optimization
-            </li>
-          </ul>
-
-          <p class="project-focus">
-            <strong>Outcomes:</strong><br />
-            • Significantly reduced invalid or hallucinated clinical entities<br />
-            • Improved structural consistency of generated OPD notes across sessions<br />
-            • Identified text normalization as a larger error source than raw ASR WER
-          </p>
-
-          <p class="project-focus">
-            <strong>Constraints:</strong>
-            real-time audio, noisy environments, mixed-language speech,
-            clinical safety, low tolerance for hallucinations
-          </p>
-
-          <a
-            href="https://github.com/samadrehan02/upgraded-waddle-llm"
-            target="_blank"
-            data-cursor
-          >
-            Open-source implementation →
-          </a>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-num" data-target="40">0</span><span class="accent">%</span>
+              <span class="stat-label">Latency reduction</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="60">0</span><span class="accent">%</span>
+              <span class="stat-label">Fewer deploy regressions</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="45">0</span><span class="accent">%</span>
+              <span class="stat-label">Higher task compliance</span>
+            </div>
+          </div>
         </div>
-
-
-        <!-- Minutes of Meeting AI -->
-        <div class="project reveal" data-cursor>
-          <h3>
-            Minutes of Meeting AI
-            <span class="badge research">NLP and LLM</span>
-            <span class="badge open">Open Source</span>
-          </h3>
-
-          <p class="project-desc">
-            Structured meeting intelligence system focused on extracting
-            decisions, action items, and accountability from multi-speaker
-            conversations.
-          </p>
-
-          <p class="project-focus">
-            <strong>Research focus:</strong><br />
-            Exploring structured extraction and constrained summarization as
-            alternatives to generic abstractive meeting summaries.
-          </p>
-
-          <ul>
-            <li>
-              Studied decision and action-item extraction under noisy,
-              overlapping-speaker transcripts
-            </li>
-            <li>
-              Designed prompts and post-processing to handle interruptions,
-              partial sentences, and implicit decisions
-            </li>
-            <li>
-              Optimized for downstream usability rather than narrative completeness
-            </li>
-          </ul>
-
-          <p class="project-focus">
-            <strong>Outcomes:</strong><br />
-            • More consistent extraction of actionable items across meetings<br />
-            • Reduced variance compared to free-form LLM summaries
-          </p>
-
-          <a
-            href="https://github.com/samadrehan02/MinutesofMeetingAI"
-            target="_blank"
-            data-cursor
-          >
-            Open-source implementation →
-          </a>
+        <div class="about-card-wrap">
+          <div class="about-terminal">
+            <div class="terminal-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="terminal-title">samad@augurs ~ %</span>
+            </div>
+            <div class="terminal-body" id="terminalBody"></div>
+          </div>
         </div>
-
       </div>
-    </section>
+    </div>
+  </section>
 
-
-    <!-- ================= SKILLS ================= -->
-    <section>
-      <h2>Skills</h2>
-
+  <!-- ── SKILLS ────────────────────────────────────────────────── -->
+  <section id="skills" class="section reveal">
+    <div class="container">
+      <p class="section-label">02 / Skills</p>
+      <h2 class="section-title">Tech stack.</h2>
       <div class="skills-grid">
 
-        <div class="project reveal">
-          <h3>LLMs & NLP</h3>
-          <p class="project-desc">
-            LLM behavior analysis, instruction tuning, structured generation,
-            and evaluation under constraints.
-          </p>
-          <ul>
-            <li>LLMs, instruction tuning, prompt constraints</li>
-            <li>RAG systems, NL2SQL, information extraction, NER</li>
-            <li>Hindi & Hinglish NLP, ASR pipelines</li>
-          </ul>
+        <div class="skill-group reveal-child">
+          <div class="skill-group-icon">🧠</div>
+          <h3>LLMs &amp; NLP</h3>
+          <div class="skill-tags">
+            <span>LLM Fine-tuning</span><span>Instruction Tuning</span>
+            <span>RAG</span><span>NL2SQL</span><span>NER</span>
+            <span>Prompt Engineering</span><span>ASR Pipelines</span>
+            <span>Hindi / Hinglish NLP</span>
+          </div>
         </div>
 
-        <div class="project reveal">
-          <h3>ML Engineering & MLOps</h3>
-          <p class="project-desc">
-            Production-grade ML systems with emphasis on reproducibility,
-            latency, and reliability.
-          </p>
-          <ul>
-            <li>PyTorch, Hugging Face, scikit-learn, XGBoost</li>
-            <li>FastAPI inference services, REST APIs</li>
-            <li>GPU inference, batching, latency optimization</li>
-            <li>Model versioning, monitoring, rollback</li>
-          </ul>
+        <div class="skill-group reveal-child">
+          <div class="skill-group-icon">⚙️</div>
+          <h3>ML Engineering</h3>
+          <div class="skill-tags">
+            <span>PyTorch</span><span>Hugging Face</span>
+            <span>Scikit-learn</span><span>XGBoost</span>
+            <span>Feature Engineering</span><span>Model Evaluation</span>
+            <span>Computer Vision</span><span>OpenCV</span>
+          </div>
         </div>
 
-        <div class="project reveal">
-          <h3>Systems & Cloud</h3>
-          <p class="project-desc">
-            Deployment and infrastructure for ML workloads.
-          </p>
-          <ul>
-            <li>AWS (EC2, S3, IAM, ECR)</li>
-            <li>Docker, Linux</li>
-            <li>CI/CD for ML pipelines</li>
-          </ul>
+        <div class="skill-group reveal-child">
+          <div class="skill-group-icon">🚀</div>
+          <h3>MLOps &amp; Cloud</h3>
+          <div class="skill-tags">
+            <span>FastAPI</span><span>Docker</span>
+            <span>AWS EC2 / S3 / ECR</span><span>GPU Inference</span>
+            <span>CI/CD for ML</span><span>Model Versioning</span>
+            <span>Linux</span><span>REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal-child">
+          <div class="skill-group-icon">💻</div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>C++</span>
+            <span>C</span><span>Java</span>
+            <span>SQL</span><span>Bash</span>
+          </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= CERTIFICATIONS ================= -->
-    <section>
-      <h2>Certifications</h2>
-
-      <div class="project reveal">
-        <ul>
-          <li>Amazon AWS Certified Cloud Practitioner — Nov 2024</li>
-          <li>Amazon AWS Certified Solutions Architect – Associate — Mar 2025</li>
-          <li>CS50SQL: Introduction to Databases with SQL (Harvard / edX) - Dec 2025</li>
-          <li>CS50AI: Introduction to Artificial Intelligence with Python (Harvard / edX) — Oct 2025</li>
-          <li>Microsoft Azure Fundamentals (AZ-900) — Dec 2023</li>
-          <li>Python Institute PCEP: Certified Entry-Level Python Programmer — Aug 2022</li>
-        </ul>
+  <!-- ── EXPERIENCE ────────────────────────────────────────────── -->
+  <section id="experience" class="section reveal">
+    <div class="container">
+      <p class="section-label">03 / Experience</p>
+      <h2 class="section-title">Where I've worked.</h2>
+      <div class="timeline">
+        <div class="timeline-item reveal-child">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3>Machine Learning Engineer</h3>
+                <p class="timeline-company">Augurs Technologies <span>· Lucknow, India</span></p>
+              </div>
+              <span class="timeline-date">Dec 2025 — Present</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Designed and deployed LLM-powered systems achieving <strong>~25–40% lower latency</strong> and <strong>~30% lower compute cost</strong> per request via prompt and inference-path optimization.</li>
+              <li>Built FastAPI inference backends for LLMs and RAG pipelines sustaining <strong>sub-second P95 latency</strong> at thousands of requests/day with structured logging and auth.</li>
+              <li>Performed LLM fine-tuning (instruction tuning, response calibration) improving task compliance by <strong>~35–45%</strong> and cutting invalid outputs by <strong>~2–3×</strong>.</li>
+              <li>Applied MLOps practices (versioning, monitoring, reproducible deployments) reducing deployment regressions by <strong>~60%</strong> and rollback time by <strong>~2×</strong>.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>LLM Fine-tuning</span><span>FastAPI</span><span>RAG</span>
+              <span>MLOps</span><span>GPU Inference</span><span>AWS</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= EXPERIENCE ================= -->
-    <section>
-      <h2>Experience</h2>
+  <!-- ── PROJECTS ──────────────────────────────────────────────── -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <p class="section-label">04 / Projects</p>
+      <h2 class="section-title">Flagship work.</h2>
+      <div class="projects-grid">
 
-      <div class="project reveal">
-        <h3>Machine Learning Engineer — Augurs Technologies</h3>
-        <ul>
-          <li>Designed and deployed LLM-powered systems used in production</li>
-          <li>Built FastAPI-based inference backends for LLMs and RAG pipelines</li>
-          <li>Applied MLOps practices for versioning, monitoring, and rollback</li>
-          <li>Optimized latency and cost across GPU-hosted and cloud-managed models</li>
-        </ul>
+        <div class="project-card reveal-child" data-index="0">
+          <div class="project-header">
+            <div class="project-icon">🏥</div>
+            <div class="project-links">
+              <a href="https://github.com/samadrehan02" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="project-type">LLM · NER · ASR</span>
+          <h3>AI Medical Scribe</h3>
+          <p>Real-time transcription and structured clinical note generation from noisy Hindi/Hinglish doctor–patient conversations. Entity-first pipeline mitigates hallucinated clinical facts versus end-to-end generation.</p>
+          <div class="project-outcomes">
+            <div class="outcome"><span class="outcome-icon">✓</span> Reduced hallucinated clinical entities significantly</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Identified text normalization as primary error source</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Consistent OPD note structure across sessions</div>
+          </div>
+          <div class="project-stack">
+            <span>FastAPI</span><span>Vosk ASR</span><span>Llama 3.1</span>
+            <span>Ollama</span><span>Hindi NLP</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-index="1">
+          <div class="project-header">
+            <div class="project-icon">💬</div>
+            <div class="project-links">
+              <a href="https://github.com/samadrehan02" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="project-type">NLP · SQL · LLM</span>
+          <h3>NL-to-SQL Chatbot</h3>
+          <p>Conversational chatbot that translates natural language to safe, validated SQL across multiple schemas. Context-aware multi-turn memory with schema-aware routing and pronoun/reference resolution.</p>
+          <div class="project-outcomes">
+            <div class="outcome"><span class="outcome-icon">✓</span> Multi-schema SQL generation with safety validation</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Accurate multi-turn follow-up resolution</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Combined structured DB + conversational replies</div>
+          </div>
+          <div class="project-stack">
+            <span>FastAPI</span><span>LLM Inference</span><span>SQL</span>
+            <span>Session Memory</span><span>Schema Routing</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-index="2">
+          <div class="project-header">
+            <div class="project-icon">📈</div>
+            <div class="project-links">
+              <a href="https://github.com/samadrehan02" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="project-type">Applied ML · Open Source</span>
+          <h3>Dynamic Pricing System</h3>
+          <p>End-to-end retail pricing platform combining synthetic data generation, rule-based heuristics, and ML-driven price optimization with hard business safety constraints and full operational observability.</p>
+          <div class="project-outcomes">
+            <div class="outcome"><span class="outcome-icon">✓</span> ML corrections outperformed static + rule-based baselines</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Cold-start bootstrapping via synthetic data generation</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Interactive admin dashboard for SKU exploration</div>
+          </div>
+          <div class="project-stack">
+            <span>FastAPI</span><span>Flask</span><span>XGBoost</span>
+            <span>Synthetic Data</span><span>Dashboard</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-index="3">
+          <div class="project-header">
+            <div class="project-icon">📋</div>
+            <div class="project-links">
+              <a href="https://github.com/samadrehan02" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="project-type">NLP · LLM</span>
+          <h3>Minutes of Meeting AI</h3>
+          <p>Structured meeting intelligence system extracting decisions, action items, and accountability from multi-speaker conversations. Constrained extraction as an alternative to generic abstractive summaries.</p>
+          <div class="project-outcomes">
+            <div class="outcome"><span class="outcome-icon">✓</span> Consistent action-item extraction across meetings</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Reduced variance vs. free-form LLM summaries</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Handles interruptions and implicit decisions</div>
+          </div>
+          <div class="project-stack">
+            <span>LLM</span><span>Structured Extraction</span>
+            <span>Multi-speaker ASR</span><span>Post-processing</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-index="4">
+          <div class="project-header">
+            <div class="project-icon">📊</div>
+            <div class="project-links">
+              <a href="https://github.com/samadrehan02" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="project-type">ML · Transformers · Finance</span>
+          <h3>Stock Market Predictor</h3>
+          <p>Full-stack ML application using a TCN Transformer achieving 98% R² on stock forecasting. Real-time prediction pipeline handling thousands of data points per second with 40% latency reduction via caching and async APIs.</p>
+          <div class="project-outcomes">
+            <div class="outcome"><span class="outcome-icon">✓</span> 98% R² score on historical datasets</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> 40% query latency reduction</div>
+            <div class="outcome"><span class="outcome-icon">✓</span> Real-time pipeline at scale</div>
+          </div>
+          <div class="project-stack">
+            <span>PyTorch</span><span>TCN Transformer</span>
+            <span>Async APIs</span><span>Caching</span>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= EDUCATION ================= -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="project reveal">
-        <h3>Vellore Institute of Technology</h3>
-        <p>B.Tech in Computer Science and Engineering (AI & ML), 2025</p>
+  <!-- ── CERTIFICATIONS ────────────────────────────────────────── -->
+  <section id="certifications" class="section reveal">
+    <div class="container">
+      <p class="section-label">05 / Certifications</p>
+      <h2 class="section-title">Credentials.</h2>
+      <div class="certs-grid">
+        <div class="cert-card reveal-child"><div class="cert-logo aws">AWS</div><div class="cert-info"><h4>Cloud Practitioner</h4><p>Amazon Web Services · Nov 2024</p></div></div>
+        <div class="cert-card reveal-child"><div class="cert-logo aws">AWS</div><div class="cert-info"><h4>Solutions Architect — Associate</h4><p>Amazon Web Services · Mar 2025</p></div></div>
+        <div class="cert-card reveal-child"><div class="cert-logo harvard">HX</div><div class="cert-info"><h4>CS50AI — AI with Python</h4><p>Harvard University / edX · Oct 2025</p></div></div>
+        <div class="cert-card reveal-child"><div class="cert-logo harvard">HX</div><div class="cert-info"><h4>CS50SQL — Databases with SQL</h4><p>Harvard University / edX · Dec 2025</p></div></div>
+        <div class="cert-card reveal-child"><div class="cert-logo azure">AZ</div><div class="cert-info"><h4>Azure Fundamentals AZ-900</h4><p>Microsoft · Dec 2023</p></div></div>
+        <div class="cert-card reveal-child"><div class="cert-logo python">PY</div><div class="cert-info"><h4>PCEP Python Programmer</h4><p>Python Institute · Aug 2022</p></div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer>
-      <p>Built with plain HTML, CSS, and JavaScript. Open, inspectable, and reproducible.</p>
-    </footer>
+  <!-- ── CONTACT ───────────────────────────────────────────────── -->
+  <section id="contact" class="section reveal">
+    <div class="container contact-container">
+      <p class="section-label">06 / Contact</p>
+      <h2 class="section-title">Let's build something.</h2>
+      <p class="contact-sub">Open to full-time roles, contract work, and interesting LLM / MLOps challenges.</p>
+      <div class="contact-links">
+        <a href="mailto:samadrehan123456@gmail.com" class="contact-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          samadrehan123456@gmail.com
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/samadrehan02" target="_blank" class="contact-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container footer-inner">
+      <span>Built by Samad Rehan — vanilla HTML / CSS / JS</span>
+      <span>© 2026</span>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
