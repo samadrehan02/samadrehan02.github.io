@@ -182,7 +182,7 @@ if (aboutSection) counterObserver.observe(aboutSection);
 
   const lines = [
     { type: 'prompt', text: 'whoami' },
-    { type: 'out',    text: 'samad_rehan  # ML Engineer @ Augurs Technologies' },
+    { type: 'out', text: 'samad_rehan  # ML Engineer · LLM Systems & MLOps' },
     { type: 'prompt', text: 'cat skills.txt | head -4' },
     { type: 'kv',     key: 'focus',  val: 'LLM Systems, RAG, MLOps' },
     { type: 'kv',     key: 'cloud',  val: 'AWS EC2 · S3 · ECR · Docker' },
