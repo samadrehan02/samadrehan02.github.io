@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────────────────────────
-   SAMAD REHAN — PORTFOLIO  |  app.js
-   ─────────────────────────────────────────────────────────────────*/
+   SAMAD REHAN — PORTFOLIO | app.js
+─────────────────────────────────────────────────────────────────*/
 
 'use strict';
 
@@ -11,8 +11,8 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ── 2. HAMBURGER / MOBILE MENU ─────────────────────────────────── */
-const hamburger   = document.getElementById('hamburger');
-const mobileMenu  = document.getElementById('mobileMenu');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
@@ -45,23 +45,23 @@ document.addEventListener('mousemove', e => {
 
 document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    ring.style.width  = '54px';
-    ring.style.height = '54px';
+    ring.style.width       = '54px';
+    ring.style.height      = '54px';
     ring.style.borderColor = 'var(--accent-2)';
   });
   el.addEventListener('mouseleave', () => {
-    ring.style.width  = '36px';
-    ring.style.height = '36px';
+    ring.style.width       = '36px';
+    ring.style.height      = '36px';
     ring.style.borderColor = 'var(--accent)';
   });
 });
 
 /* ── 4. PARTICLE CANVAS ─────────────────────────────────────────── */
 (function initParticles() {
-  const canvas = document.getElementById('particleCanvas');
-  const ctx    = canvas.getContext('2d');
+  const canvas = document.getElementById('bgCanvas'); // ← FIXED (was 'particleCanvas')
+  const ctx = canvas.getContext('2d');
   let W, H, particles;
-  const COUNT = 80;
+  const COUNT    = 80;
   const MAX_DIST = 130;
 
   function resize() {
@@ -78,7 +78,6 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
     this.vy = (Math.random() - .5) * .4;
     this.r  = Math.random() * 1.5 + .5;
   }
-
   particles = Array.from({ length: COUNT }, () => new Particle());
 
   function draw() {
@@ -114,7 +113,7 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
 
 /* ── 5. HERO TYPED TEXT ─────────────────────────────────────────── */
 (function initTyped() {
-  const el     = document.getElementById('heroTyped');
+  const el = document.getElementById('heroTyped');
   const phrases = [
     'ML Engineer.',
     'LLM Systems Builder.',
@@ -144,7 +143,6 @@ const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('visible');
-    // stagger children
     entry.target.querySelectorAll('.reveal-child').forEach((child, i) => {
       setTimeout(() => child.classList.add('visible'), i * 100);
     });
@@ -177,17 +175,17 @@ if (aboutSection) counterObserver.observe(aboutSection);
 
 /* ── 8. TERMINAL TYPEWRITER ─────────────────────────────────────── */
 (function initTerminal() {
-  const body  = document.getElementById('terminalBody');
+  const body = document.getElementById('terminalBody');
   if (!body) return;
 
   const lines = [
     { type: 'prompt', text: 'whoami' },
-    { type: 'out', text: 'samad_rehan  # ML Engineer · LLM Systems & MLOps' },
+    { type: 'out',    text: 'samad_rehan # ML Engineer · LLM Systems & MLOps' },
     { type: 'prompt', text: 'cat skills.txt | head -4' },
-    { type: 'kv',     key: 'focus',  val: 'LLM Systems, RAG, MLOps' },
-    { type: 'kv',     key: 'cloud',  val: 'AWS EC2 · S3 · ECR · Docker' },
-    { type: 'kv',     key: 'stack',  val: 'PyTorch · FastAPI · HuggingFace' },
-    { type: 'kv',     key: 'lang',   val: 'Python · C++ · SQL' },
+    { type: 'kv',     key: 'focus', val: 'LLM Systems, RAG, MLOps' },
+    { type: 'kv',     key: 'cloud', val: 'AWS EC2 · S3 · ECR · Docker' },
+    { type: 'kv',     key: 'stack', val: 'PyTorch · FastAPI · HuggingFace' },
+    { type: 'kv',     key: 'lang',  val: 'Python · C++ · SQL' },
     { type: 'prompt', text: 'echo $STATUS' },
     { type: 'green',  text: '✓ Available for new roles — Feb 2026' },
     { type: 'prompt', text: '' },
@@ -200,22 +198,16 @@ if (aboutSection) counterObserver.observe(aboutSection);
     const span = document.createElement('span');
     span.classList.add('t-line');
 
-    if (l.type === 'prompt') {
-      span.innerHTML = `<span class="t-prompt">❯</span> <span class="t-cmd">${l.text}</span>`;
-    } else if (l.type === 'out') {
-      span.innerHTML = `<span class="t-out">${l.text}</span>`;
-    } else if (l.type === 'kv') {
-      span.innerHTML = `<span class="t-out">  </span><span class="t-key">${l.key}</span><span class="t-out">: </span><span class="t-val">${l.val}</span>`;
-    } else if (l.type === 'green') {
-      span.innerHTML = `<span class="t-green">${l.text}</span>`;
-    }
+    if      (l.type === 'prompt') span.innerHTML = `<span class="t-prompt">❯</span> <span class="t-cmd">${l.text}</span>`;
+    else if (l.type === 'out')    span.innerHTML = `<span class="t-out">${l.text}</span>`;
+    else if (l.type === 'kv')     span.innerHTML = `<span class="t-out"> </span><span class="t-key">${l.key}</span><span class="t-out">: </span><span class="t-val">${l.val}</span>`;
+    else if (l.type === 'green')  span.innerHTML = `<span class="t-green">${l.text}</span>`;
 
     body.appendChild(span);
     body.scrollTop = body.scrollHeight;
     setTimeout(addLine, l.type === 'prompt' ? 320 : 140);
   }
 
-  // Start once about section is visible
   const termObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) { addLine(); termObs.disconnect(); }
   }, { threshold: 0.3 });
@@ -226,7 +218,6 @@ if (aboutSection) counterObserver.observe(aboutSection);
 (function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-links a');
-
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -237,7 +228,6 @@ if (aboutSection) counterObserver.observe(aboutSection);
       });
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
-
   sections.forEach(s => obs.observe(s));
 })();
 
