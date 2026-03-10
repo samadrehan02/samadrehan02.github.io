@@ -6,7 +6,7 @@
   <title>Samad Rehan — ML Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,8 +15,11 @@
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ── PARTICLES CANVAS ──────────────────────────────────── -->
-  <canvas id="particleCanvas"></canvas>
+  <!-- ── LIVE BACKGROUND ─────────────────────────────────────── -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- ── NOISE OVERLAY ───────────────────────────────────────── -->
+  <div class="noise"></div>
 
   <!-- ── NAV ──────────────────────────────────────────────────── -->
   <nav id="navbar">
@@ -51,8 +54,11 @@
   <!-- ── HERO ─────────────────────────────────────────────────── -->
   <section id="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow"><span class="badge-dot"></span>Available for new roles</p>
-      <h1 class="hero-name">Samad<br/>Rehan<span class="accent">.</span></h1>
+      <p class="hero-eyebrow"><span class="badge-dot"></span>Available for new roles — 2026</p>
+      <div class="hero-name-wrap">
+        <h1 class="hero-name" data-text="Samad">Samad</h1>
+        <h1 class="hero-name hero-name-2" data-text="Rehan">Rehan<span class="accent">.</span></h1>
+      </div>
       <div class="hero-typed-wrapper">
         <span class="hero-typed" id="heroTyped"></span><span class="typed-cursor">|</span>
       </div>
@@ -61,18 +67,21 @@
         that ship with measurable impact on latency, cost, and reliability.
       </p>
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="assets/samad-resume-2026.pdf" class="btn btn-ghost" target="_blank">Resume ↗</a>
+        <a href="#projects" class="btn btn-primary"><span>View Projects</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="assets/samad-resume-2026.pdf" class="btn btn-ghost" target="_blank"><span>Resume</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
       </div>
       <div class="hero-socials">
-        <a href="https://github.com/samadrehan02" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/samadrehan02" target="_blank" aria-label="GitHub" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-1.93C5.86 21.1 5.17 18.97 5.17 18.97c-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.19-1.27-5.19-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17A10.96 10.96 0 0 1 12 6.8c.97 0 1.95.13 2.86.39 2.18-1.48 3.14-1.17 3.14-1.17.63 1.58.24 2.75.12 3.04.74.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.79.55C20.21 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          <span>GitHub</span>
         </a>
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span>
         </a>
-        <a href="mailto:samadrehan123456@gmail.com" aria-label="Email">
+        <a href="mailto:samadrehan02@gmail.com" aria-label="Email" class="social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          <span>Email</span>
         </a>
       </div>
     </div>
@@ -80,6 +89,10 @@
       <span>scroll</span>
       <div class="scroll-line"></div>
     </div>
+    <!-- floating geometric accents -->
+    <div class="geo geo-1"></div>
+    <div class="geo geo-2"></div>
+    <div class="geo geo-3"></div>
   </section>
 
   <!-- ── ABOUT ─────────────────────────────────────────────────── -->
@@ -91,27 +104,30 @@
         <div class="about-text">
           <p>
             I'm a Machine Learning Engineer based in Lucknow, India.
-            My work lives at the intersection of
-            LLM systems, NLP pipelines, and production inference infrastructure —
-            where the hard problems aren't just accuracy but latency, cost, and
-            reliability at scale.
+            My work lives at the intersection of LLM systems, NLP pipelines, and production inference infrastructure —
+            where the hard problems aren't just accuracy but latency, cost, and reliability at scale.
           </p>
           <p>
-            I care about the parts of ML that get underspecified: ordering of
-            components, failure modes, safety constraints, and the tradeoffs that
-            only become clear when real traffic hits a system.
+            I care about the parts of ML that get underspecified: ordering of components, failure modes, safety constraints, 
+            and the tradeoffs that only become clear when real traffic hits a system.
           </p>
           <div class="about-stats">
             <div class="stat-card">
-              <span class="stat-num" data-target="40">0</span><span class="accent">%</span>
+              <div class="stat-inner">
+                <span class="stat-num" data-target="40">0</span><span class="accent">%</span>
+              </div>
               <span class="stat-label">Latency reduction</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num" data-target="60">0</span><span class="accent">%</span>
+              <div class="stat-inner">
+                <span class="stat-num" data-target="60">0</span><span class="accent">%</span>
+              </div>
               <span class="stat-label">Fewer deploy regressions</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num" data-target="45">0</span><span class="accent">%</span>
+              <div class="stat-inner">
+                <span class="stat-num" data-target="45">0</span><span class="accent">%</span>
+              </div>
               <span class="stat-label">Higher task compliance</span>
             </div>
           </div>
@@ -222,7 +238,7 @@
       <h2 class="section-title">Flagship work.</h2>
       <div class="projects-grid">
 
-        <div class="project-card reveal-child" data-index="0">
+        <div class="project-card reveal-child">
           <div class="project-header">
             <div class="project-icon">🏥</div>
             <div class="project-links">
@@ -233,7 +249,7 @@
           </div>
           <span class="project-type">LLM · NER · ASR</span>
           <h3>AI Medical Scribe</h3>
-          <p>Real-time transcription and structured clinical note generation from noisy Hindi/Hinglish doctor–patient conversations. Entity-first pipeline mitigates hallucinated clinical facts versus end-to-end generation.</p>
+          <p>Real-time transcription and structured clinical note generation from noisy Hindi/Hinglish doctor–patient conversations. Entity-first pipeline mitigates hallucinated clinical facts.</p>
           <div class="project-outcomes">
             <div class="outcome"><span class="outcome-icon">✓</span> Reduced hallucinated clinical entities significantly</div>
             <div class="outcome"><span class="outcome-icon">✓</span> Identified text normalization as primary error source</div>
@@ -245,7 +261,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal-child" data-index="1">
+        <div class="project-card reveal-child">
           <div class="project-header">
             <div class="project-icon">💬</div>
             <div class="project-links">
@@ -268,7 +284,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal-child" data-index="2">
+        <div class="project-card reveal-child">
           <div class="project-header">
             <div class="project-icon">📈</div>
             <div class="project-links">
@@ -291,7 +307,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal-child" data-index="3">
+        <div class="project-card reveal-child">
           <div class="project-header">
             <div class="project-icon">📋</div>
             <div class="project-links">
@@ -314,7 +330,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal-child" data-index="4">
+        <div class="project-card reveal-child">
           <div class="project-header">
             <div class="project-icon">📊</div>
             <div class="project-links">
@@ -325,7 +341,7 @@
           </div>
           <span class="project-type">ML · Transformers · Finance</span>
           <h3>Stock Market Predictor</h3>
-          <p>Full-stack ML application using a TCN Transformer achieving 98% R² on stock forecasting. Real-time prediction pipeline handling thousands of data points per second with 40% latency reduction via caching and async APIs.</p>
+          <p>Full-stack ML application using a TCN Transformer achieving 98% R² on stock forecasting. Real-time prediction pipeline handling thousands of data points per second with 40% latency reduction.</p>
           <div class="project-outcomes">
             <div class="outcome"><span class="outcome-icon">✓</span> 98% R² score on historical datasets</div>
             <div class="outcome"><span class="outcome-icon">✓</span> 40% query latency reduction</div>
@@ -364,9 +380,9 @@
       <h2 class="section-title">Let's build something.</h2>
       <p class="contact-sub">Open to full-time roles, contract work, and interesting LLM / MLOps challenges.</p>
       <div class="contact-links">
-        <a href="mailto:samadrehan123456@gmail.com" class="contact-pill">
+        <a href="mailto:samadrehan02@gmail.com" class="contact-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-          samadrehan123456@gmail.com
+          samadrehan02@gmail.com
         </a>
         <a href="https://linkedin.com" target="_blank" class="contact-pill">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
@@ -383,8 +399,8 @@
   <!-- ── FOOTER ────────────────────────────────────────────────── -->
   <footer>
     <div class="container footer-inner">
-      <span>Built by Samad Rehan — vanilla HTML / CSS / JS</span>
-      <span>© 2026</span>
+      <span>© 2026 Samad Rehan</span>
+      <span>ML Engineer · Lucknow, India</span>
     </div>
   </footer>
 
