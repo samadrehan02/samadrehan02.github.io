@@ -1,7 +1,6 @@
 /* ─────────────────────────────────────────────────────────────────
    SAMAD REHAN — PORTFOLIO | app.js
 ─────────────────────────────────────────────────────────────────*/
-
 'use strict';
 
 /* ── 1. NAVBAR SCROLL ──────────────────────────────────────────── */
@@ -30,7 +29,8 @@ const ring = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
 document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
+  mouseX = e.clientX;
+  mouseY = e.clientY;
   dot.style.left = mouseX + 'px';
   dot.style.top  = mouseY + 'px';
 });
@@ -59,8 +59,9 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
 /* ── 4. PARTICLE CANVAS ─────────────────────────────────────────── */
 (function initParticles() {
   const canvas = document.getElementById('bgCanvas'); // ← FIXED (was 'particleCanvas')
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let W, H, particles;
+  let W, H;
   const COUNT    = 80;
   const MAX_DIST = 130;
 
@@ -74,23 +75,27 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
   function Particle() {
     this.x  = Math.random() * W;
     this.y  = Math.random() * H;
-    this.vx = (Math.random() - .5) * .4;
-    this.vy = (Math.random() - .5) * .4;
-    this.r  = Math.random() * 1.5 + .5;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r  = Math.random() * 1.5 + 0.5;
   }
-  particles = Array.from({ length: COUNT }, () => new Particle());
+
+  const particles = Array.from({ length: COUNT }, () => new Particle());
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+
     particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
+      p.x += p.vx;
+      p.y += p.vy;
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < 0 || p.y > H) p.vy *= -1;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(10,255,160,.5)';
+      ctx.fillStyle = 'rgba(10,255,160,0.5)';
       ctx.fill();
     });
+
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -100,12 +105,13 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(10,255,160,${(1 - d / MAX_DIST) * .2})`;
-          ctx.lineWidth = .6;
+          ctx.strokeStyle = `rgba(10,255,160,${(1 - d / MAX_DIST) * 0.2})`;
+          ctx.lineWidth   = 0.6;
           ctx.stroke();
         }
       }
     }
+
     requestAnimationFrame(draw);
   }
   draw();
@@ -114,6 +120,7 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
 /* ── 5. HERO TYPED TEXT ─────────────────────────────────────────── */
 (function initTyped() {
   const el = document.getElementById('heroTyped');
+  if (!el) return;
   const phrases = [
     'ML Engineer.',
     'LLM Systems Builder.',
@@ -128,10 +135,17 @@ document.querySelectorAll('a, button, .project-card, .skill-group, .cert-card').
     const phrase = phrases[pi];
     if (!deleting) {
       el.textContent = phrase.slice(0, ++ci);
-      if (ci === phrase.length) { deleting = true; setTimeout(tick, PAUSE); return; }
+      if (ci === phrase.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE);
+        return;
+      }
     } else {
       el.textContent = phrase.slice(0, --ci);
-      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+      }
     }
     setTimeout(tick, deleting ? SPEED_DEL : SPEED_TYPE);
   }
@@ -162,7 +176,11 @@ const counterObserver = new IntersectionObserver(entries => {
       const step   = target / 60;
       const timer  = setInterval(() => {
         current += step;
-        if (current >= target) { el.textContent = target; clearInterval(timer); return; }
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+          return;
+        }
         el.textContent = Math.floor(current);
       }, 16);
     });
@@ -180,14 +198,14 @@ if (aboutSection) counterObserver.observe(aboutSection);
 
   const lines = [
     { type: 'prompt', text: 'whoami' },
-    { type: 'out',    text: 'samad_rehan # ML Engineer · LLM Systems & MLOps' },
+    { type: 'out',    text: 'samad_rehan &mdash; ML Engineer · LLM Systems & MLOps' },
     { type: 'prompt', text: 'cat skills.txt | head -4' },
     { type: 'kv',     key: 'focus', val: 'LLM Systems, RAG, MLOps' },
     { type: 'kv',     key: 'cloud', val: 'AWS EC2 · S3 · ECR · Docker' },
     { type: 'kv',     key: 'stack', val: 'PyTorch · FastAPI · HuggingFace' },
     { type: 'kv',     key: 'lang',  val: 'Python · C++ · SQL' },
     { type: 'prompt', text: 'echo $STATUS' },
-    { type: 'green',  text: '✓ Available for new roles — Feb 2026' },
+    { type: 'green',  text: '✓ Available for new roles — 2026' },
     { type: 'prompt', text: '' },
   ];
 
@@ -198,10 +216,15 @@ if (aboutSection) counterObserver.observe(aboutSection);
     const span = document.createElement('span');
     span.classList.add('t-line');
 
-    if      (l.type === 'prompt') span.innerHTML = `<span class="t-prompt">❯</span> <span class="t-cmd">${l.text}</span>`;
-    else if (l.type === 'out')    span.innerHTML = `<span class="t-out">${l.text}</span>`;
-    else if (l.type === 'kv')     span.innerHTML = `<span class="t-out"> </span><span class="t-key">${l.key}</span><span class="t-out">: </span><span class="t-val">${l.val}</span>`;
-    else if (l.type === 'green')  span.innerHTML = `<span class="t-green">${l.text}</span>`;
+    if (l.type === 'prompt') {
+      span.innerHTML = `<span class="t-prompt">❯</span> <span class="t-cmd">${l.text}</span>`;
+    } else if (l.type === 'out') {
+      span.innerHTML = `<span class="t-out">${l.text}</span>`;
+    } else if (l.type === 'kv') {
+      span.innerHTML = `<span class="t-out">&nbsp;</span><span class="t-key">${l.key}</span><span class="t-out">: </span><span class="t-val">${l.val}</span>`;
+    } else if (l.type === 'green') {
+      span.innerHTML = `<span class="t-green">${l.text}</span>`;
+    }
 
     body.appendChild(span);
     body.scrollTop = body.scrollHeight;
@@ -209,7 +232,10 @@ if (aboutSection) counterObserver.observe(aboutSection);
   }
 
   const termObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { addLine(); termObs.disconnect(); }
+    if (entries[0].isIntersecting) {
+      addLine();
+      termObs.disconnect();
+    }
   }, { threshold: 0.3 });
   termObs.observe(document.getElementById('about'));
 })();
@@ -218,6 +244,7 @@ if (aboutSection) counterObserver.observe(aboutSection);
 (function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-links a');
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -228,6 +255,7 @@ if (aboutSection) counterObserver.observe(aboutSection);
       });
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
+
   sections.forEach(s => obs.observe(s));
 })();
 
@@ -237,7 +265,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(anchor.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 64;
+    const offset = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10
+    ) || 64;
     window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
   });
 });
